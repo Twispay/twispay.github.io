@@ -622,19 +622,12 @@ To provide a custom payment form field (only text fields):
 
  ```
  {{ customField({
-
   'name': 'unique-name',
-
   'label': 'Field label',
-
   'placeholder': 'Field placeholder',
-
   'error': 'This field is required',
-
   'required': true,
-
   'lang': 'en'
-
 }) }}
 ```
 
@@ -644,11 +637,8 @@ Note! The `lang` key, by default will be set to `en`. If you want to provide tra
 
 ```
 {{ translate({
-
   'en': 'Some text in english',
-
   'fr': 'Quelques textes en anglais'
-
 }) }}
 ```
 
