@@ -621,14 +621,14 @@ Note! You can set a default language for your payment page to load in by sending
 To provide a custom payment form field (only text fields):
 
  ```
- {{ customField({
+ \{\{ customField({
   'name': 'unique-name',
   'label': 'Field label',
   'placeholder': 'Field placeholder',
   'error': 'This field is required',
   'required': true,
   'lang': 'en'
-}) }}
+}) \}\}
 ```
 
 Note! The `lang` key, by default will be set to `en`. If you want to provide translations, just include the same custom field definition, using the same `name`, in different language (the `lang` key will need to be set with the two chars language code).
@@ -636,10 +636,10 @@ Note! The `lang` key, by default will be set to `en`. If you want to provide tra
  To provide custom text in multiple languages:
 
 ```
-{{ translate({
+\{\{ translate({
   'en': 'Some text in english',
   'fr': 'Quelques textes en anglais'
-}) }}
+}) \}\}
 ```
 
 Note! The key is the language (provided in two chars language code) and the value is the text in that language. The `en` should always be defined. If current page's language is not defined - the `en` version will be used (or the first defined language when `en` is undefined). 
