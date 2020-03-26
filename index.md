@@ -1,7 +1,3 @@
-#  **Twispay® Hosted Payment Page**
-
-
-
 ## Table of Contents  
 
 1. Introduction  
