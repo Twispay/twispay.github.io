@@ -8,8 +8,7 @@
 6. [Custom Payment Page Specifications](#custom-payment-page-specifications)
 7. [iFrame Payment Form](#iframe-payment-form)
 8. [Custom email receipt specifications](#custom-email-receipt-specifications)
-9. [Payout Transactions for Gambling](#payout-transactions-for-gambling)
-
+9. [Payout Transactions for Gambling](#payout-transactions-for-gambling-octcft)
 
 # Introduction  
 
