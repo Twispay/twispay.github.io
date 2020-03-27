@@ -578,7 +578,7 @@ When building a custom payment page you can use the following tags (the required
 
 | **Tag  name**                                                | **Description**                                              | **Mandatory** |
 | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------- |
-| {% raw %} {{ error }} {% endraw %}                                                  | payment form error                                           | yes           |
+| <!-- {% raw %} --> {{ error }} <!-- {% endraw %} -->         | payment form error                                           | yes           |
 | {{ cardId }}                                                 | card selector for choosing one  of the already used cards    | no            |
 | {{ cardHolderName }}                                         | card holder name                                             | yes           |
 | {{ cardHolderCountry }}                                      | card holder country                                          | no            |
