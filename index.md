@@ -576,41 +576,41 @@ You have the option to use a default template or create your own custom payment 
 
 When building a custom payment page you can use the following tags (the required ones are marked accordingly)
 
-| **Tag  name**                                                | **Description**                                              | **Mandatory** |
-| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------- |
-| <!-- {% raw %} --> {{ error }} <!-- {% endraw %} -->         | payment form error                                           | yes           |
-| {{ cardId }}                                                 | card selector for choosing one  of the already used cards    | no            |
-| {{ cardHolderName }}                                         | card holder name                                             | yes           |
-| {{ cardHolderCountry }}                                      | card holder country                                          | no            |
-| {{ cardHolderState }}                                        | card holder state                                            | no            |
-| {{ cardType }} or              {{ cardTypeSelect }} or {{ cardTypeImage }} | card type as radio button list  / card type as a drop down list / card type as a drop down list of images  (need to be inserted just under the `cardNumber` tag) | yes           |
-| {{ cardNumber }}                                             | card number                                                  | yes           |
-| {{ cardExpiryDate }}                                         | card expiry date (month and year)                            | yes           |
-| {{ cardCvv }}                                                | card cvv                                                     | yes           |
-| {{ invoiceEmail }}                                           | invoice email                                                | no            |
-| {{ firstName }}                                              | customer first name                                          | no            |
-| {{ lastName }}                                               | customer last name                                           | no            |
-| {{ country }}                                                | customer country                                             | no            |
-| {{ state }}                                                  | customer state                                               | no            |
-| {{ city }}                                                   | customer city                                                | no            |
-| {{ zipCode }}                                                | customer zip code                                            | no            |
-| {{ address }}                                                | customer address                                             | no            |
-| {{ phone }}                                                  | customer phone                                               | no            |
-| {{ email }}                                                  | customer email                                               | no            |
-| {{ submit }}                                                 | payment form submit button                                   | yes           |
-| {{ cart }} or                            {{ cartLiner }}     | the cart content  or payment description and the total amount / the cart content or payment  description and the total amount in a simpler presentation | yes           |
-| {{ currency }}                                               | order currency                                               | no            |
-| {{ description }}                                            | order description                                            | no            |
-| {{ amount }}                                                 | order amount                                                 | no            |
-| {{ logo }}                                                   | a logo image                                                 | no            |
-| {{ language }}                                               | a way for the user to change  the language                   | no            |
-| {{ closeModal }}                                             | close modal button                                           | no            |
-| {{ termsAndConditions }}                                     | terms & conditions with a  link                              | yes           |
-| {{ descriptor }}                                             | the site descriptor                                          | yes           |
-| {{ merchant }}                                               | name of the merchant                                         | yes           |
-| {{ mandatoryFields }}                                        | a description of mandatory fields                            | no            |
+| **Tag  name** | **Description** | **Mandatory** |
+| --- | --- | --- |
+| <!-- {% raw %} --> {{ error }} <!-- {% endraw %} --> | payment form error | yes |
+| <!-- {% raw %} --> {{ cardId }} <!-- {% endraw %} --> | card selector for choosing one  of the already used cards | no |
+| <!-- {% raw %} --> {{ cardHolderName }} <!-- {% endraw %} --> | card holder name | yes |
+| <!-- {% raw %} --> {{ cardHolderCountry }} <!-- {% endraw %} --> | card holder country | no |
+| <!-- {% raw %} --> {{ cardHolderState }} <!-- {% endraw %} --> | card holder state | no |
+| <!-- {% raw %} --> {{ cardType }} or {{ cardTypeSelect }} or {{ cardTypeImage }} <!-- {% endraw %} --> | card type as radio button list  / card type as a drop down list / card type as a drop down list of images  (need to be inserted just under the `cardNumber` tag) | yes |
+| <!-- {% raw %} --> {{ cardNumber }} <!-- {% endraw %} --> | card number | yes |
+| <!-- {% raw %} --> {{ cardExpiryDate }} <!-- {% endraw %} --> | card expiry date (month and year) | yes |
+| <!-- {% raw %} --> {{ cardCvv }} <!-- {% endraw %} --> | card cvv | yes |
+| <!-- {% raw %} --> {{ invoiceEmail }} <!-- {% endraw %} --> | invoice email | no |
+| <!-- {% raw %} --> {{ firstName }} <!-- {% endraw %} --> | customer first name | no |
+| <!-- {% raw %} --> {{ lastName }} <!-- {% endraw %} --> | customer last name | no |
+| <!-- {% raw %} --> {{ country }} <!-- {% endraw %} --> | customer country | no |
+| <!-- {% raw %} --> {{ state }} <!-- {% endraw %} --> | customer state | no |
+| <!-- {% raw %} --> {{ city }} <!-- {% endraw %} --> | customer city | no |
+| <!-- {% raw %} --> {{ zipCode }} <!-- {% endraw %} --> | customer zip code | no |
+| <!-- {% raw %} --> {{ address }} <!-- {% endraw %} --> | customer address | no |
+| <!-- {% raw %} --> {{ phone }} <!-- {% endraw %} --> | customer phone | no |
+| <!-- {% raw %} --> {{ email }} <!-- {% endraw %} --> | customer email | no |
+| <!-- {% raw %} --> {{ submit }} <!-- {% endraw %} --> | payment form submit button | yes |
+| <!-- {% raw %} --> {{ cart }} or {{ cartLiner }} <!-- {% endraw %} --> | the cart content  or payment description and the total amount / the cart content or payment  description and the total amount in a simpler presentation | yes |
+| <!-- {% raw %} --> {{ currency }} <!-- {% endraw %} --> | order currency | no |
+| <!-- {% raw %} --> {{ description }} <!-- {% endraw %} --> | order description | no |
+| <!-- {% raw %} --> {{ amount }} <!-- {% endraw %} --> | order amount | no |
+| <!-- {% raw %} --> {{ logo }} <!-- {% endraw %} --> | a logo image | no |
+| <!-- {% raw %} --> {{ language }} <!-- {% endraw %} --> | a way for the user to change  the language | no |
+| <!-- {% raw %} --> {{ closeModal }} <!-- {% endraw %} --> | close modal button | no |
+| <!-- {% raw %} --> {{ termsAndConditions }} <!-- {% endraw %} --> | terms & conditions with a link | yes |
+| <!-- {% raw %} --> {{ descriptor }} <!-- {% endraw %} --> | the site descriptor | yes |
+| <!-- {% raw %} --> {{ merchant }} <!-- {% endraw %} --> | name of the merchant | yes |
+| <!-- {% raw %} --> {{ mandatoryFields }} <!-- {% endraw %} --> | a description of mandatory fields | no |
 
-Note! You can set a default language for your payment page to load in by sending GET parameter ?lang=<language_code> in the URL. The following language options are available at the moment:           en, fr, de, ro, es, it, ru (example: https://secure.twispay.com/card?lang=it)
+Note! You can set a default language for your payment page to load in by sending GET parameter ?lang=<language_code> in the URL. The following language options are available at the moment: en, fr, de, ro, es, it, ru (example: https://secure.twispay.com/card?lang=it)
 
 To provide a custom payment form field (only text fields):
 <!-- {% raw %} -->
