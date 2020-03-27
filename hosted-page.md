@@ -1,4 +1,4 @@
-# Hosted payment form documentation
+# Hosted Payment Form Documentation
 
 ## Table of contents
 
@@ -21,7 +21,7 @@ and go directly to [modules documentation](#TODO).*
 ## Prerequisites
 - This guide.
 - An e-commerce site.
-- A Twispay® merchant account. If you don't already have one you can create one [here](https://merchant-stage.twispay.com).
+- A Twispay® merchant account. If you don't already have one you can create one [here](https://merchant-stage.twispay.com/auth/signup).
 - A `siteId` and secret key (aka `apiKey`) you can get from your Twispay® merchant account. See below where to find it.
 
 ![](siteID&apiKey.gif)
