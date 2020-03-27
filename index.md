@@ -1,13 +1,14 @@
-## Table of Contents  
+# Table of Contents  
 
-1. Introduction  
-2. The Request   
-3. Request Parameters  
-4. Decrypting the Response  
-5. Testing the Integration  
+1. [Introduction](#introduction)
+2. [Request Parameters](#request-parameters)
+3. [Building the request](#building-the-request)
+4. [Response parameters](#response-parameters)
+5. [Testing the Integration](#testing-the-integration)
 6. [Custom Payment Page Specifications](#custom-payment-page-specifications)
-7. iFrame Payment Form  
-8. Payout Transactions for Gambling  
+7. [iFrame Payment Form](#iframe-payment-form)
+8. [Custom email receipt specifications](#custom-email-receipt-specifications)
+9. [Payout Transactions for Gambling](#payout-transactions-for-gambling)
 
 
 # Introduction  
@@ -36,11 +37,9 @@ Note! The apiKey is unique for each website – if you had a test account, the a
 
 # Request parameters
 
-
+## Customer, Order and Transaction information
 
 These are the parameters that can be included in your Secure request. 
-
-
 
 | **Name**                                       |                      **Type / Length**                       | **Mandatory** |
 | :--------------------------------------------- | :----------------------------------------------------------: | ------------- |
@@ -98,13 +97,11 @@ These are the parameters that can be included in your Secure request.
 | order.level3Tourism.agencyCode                 |                     string  – varchar 32                     | conditional   |
 | order.level3Tourism.agencyName                 |                    string – varchar  512                     | conditional   |
 
-# Cart Items Data
+## Cart Items Data
 
 Bellow is explained the structure of an item array present in the „items” array. 
 
 Note! Please consider that the sum of the items amounts must match the amount of the transaction.
-
- 
 
 | **Name**                       | **Type**  | **Details**                                                  |
 | ------------------------------ | --------- | ------------------------------------------------------------ |
@@ -116,8 +113,6 @@ Note! Please consider that the sum of the items amounts must match the amount of
 | order.items[0].vatPercent      | float     | `VAT percent`                                                |
 | order.items[0].itemDescription | string    | `description => string - varchar 500`                        |
 
- 
-
 Note! You can validate your JSON using any JSON validator and the Twispay validation schema, which you can find here: https://secure.twispay.com/schema/v1/order.schema.json.
 
 Note! For Level 3 Data, item information (Cart/products details parameters) becomes mandatory besides the Level 3 Data additional request parameters listed in the table.
@@ -126,21 +121,13 @@ Note! The ‘orderId’ must be unique for each request since it is stored in th
 
 Ex: if the first attempt failed, re-submitting with the same ID will take the customer directly onto the page where the fail message is displayed.
 
-# 3-D Secure 2.0
-
- 
+## 3-D Secure 2.0
 
 In order to manage fraud while maintaining a positive consumer experience 3-D Secure 2.0 uses contextual data sharing between merchant and issuer. The new 3-D Secure 2.0 standard makes it possible to have significantly higher amounts of data between the merchant and the bank, which adds an additional layer of security and streamlines the checkout process. The data can be used by the bank to assess the risk of a transaction as part of its anti-fraud detection system.
 
- 
-
 In some instances, such as a cardholder travelling or making an unusual purchase, an issuer may suspect a  transaction to be suspicious; if some of the data elements match but other don’t the issuer may or may not ask the cardholder for additional info to verify their identity. 
 
- 
-
 As a merchant you can collect and pass this data to the payment gateway (Twispay®) when submitting the payment request.  You must add a new parameter to your request called ***“threeDSecureData”.\*** Inside this parameter you have to add the following data as Base64 encoded JSON.
-
-
 
 | **Name**                 | **Type**  | **Details**                                                  |
 | ------------------------ | --------- | ------------------------------------------------------------ |
@@ -175,13 +162,9 @@ As a merchant you can collect and pass this data to the payment gateway (Twispay
 | shipAddrState            | string    | `Between 1 and 3 char; Should be the country subdivision code defined in ISO 3166-2` |
 | addrMatch                | string    | `Enum: “Y” or “N”; Indicates whether the Cardholder Shipping Address and Cardholder Billing Address are the same` |
 
- 
-
-
-
 By default, Twispay® will collect the following data from the card holders: “**browserAcceptHeader**”, “**browserIP**”, “**browserJavaScriptEnabled**”, “**browserUserAgent**”, “**browserLanguage**”; also if the card holder has “ **browserJavaScriptEnabled**” = true, then we will also get the following information: “**browserColorDepth**”, “**browserScreenHeight**”, “**browserScreenWidth**” and “**browserTZ**”.
 
- Sending this data inside the ***threeDSecureData\*** parameter will override the information collected by us.
+Sending this data inside the ***threeDSecureData\*** parameter will override the information collected by us.
 
 Note! You can validate your JSON using any validator and the Twispay validation schema, which you can find here: https://secure-stage.twispay.com/schema/3ds/3ds.schema.json 
 
@@ -235,8 +218,7 @@ Example of JSON containing 3D Secure 2.0 data
 ```
 
 
-
- **Building the request**
+# Building the request
 
 **Example of a simple request using PHP**
 
@@ -374,13 +356,9 @@ FORM;
     "key2": "value"
   }
 }
-
-
 ```
 
 JSON encode the order data from above and then use base64JsonRequest and base64Checksum (using the Twispay API Key) to generate an HTML form. 
-
-
 
 ```php
 class Twispay
@@ -414,15 +392,12 @@ FORM;
 
 ```
 
-
-
 Note! You can find examples of requests online on: https://github.com/Twispay
+
 
 # Response parameters
 
 You will have to provide us with a “server to server notification URL” and a “payment page back URL”, where you will receive the response from twispay®. A response will be sent on both channels right after the payment regardless of the result:
-
- 
 
 1.First on the browser redirect to your “payment page back URL”, immediately after the payment;
 
@@ -437,8 +412,6 @@ Note! When you retrieve data from the api [ORDER ID GET] the orderId parameter i
 Note! The result parameter will be encrypted.
 
 Here is an example of an `opensslResult` (after being decrypted):
-
-
 
 ```php
 Array(
@@ -545,9 +518,8 @@ Note! Make sure you add your own apiKey.
 
 After the transaction is completed (either as successful or failed), the client can be redirected to a URL (payment page back URL) specified by the merchant. 
 
-# Testing the integration
 
- 
+# Testing the integration
 
 Once the integration is complete you can test different transaction results by using the following amounts: 
 
@@ -568,9 +540,8 @@ Once the integration is complete you can test different transaction results by u
 | Expiration date                                       | Any  date in the future                        |
 | 3D Secure  code                                       | 00000                                          |
 
-# Custom payment page specifications
 
- 
+# Custom payment page specifications
 
 You have the option to use a default template or create your own custom payment page and send it to us (HTML & CSS); the files will be verified and uploaded to your account. 
 
@@ -648,8 +619,6 @@ https://secure-stage.twispay.com/build.php
 When you are done, download the HTML and CSS files and send them for review to the Twispay technical team at the following email address: [*support@twispay.com*](mailto:support@twispay.com)
 
 # iFrame payment form
-
- 
 
 If you want to implement a custom checkout experience for your customers and accept online payment on your website without having to be PCI DSS compliant, we recommend using the iFrame payment form. Instead of redirecting the customers to our hosted payment page, they will remain on your website to make the payment and twispay® will securely collect the necessary payment information and get it authorized for you; all the sensitive card data will be collected and managed by twispay®.
 
@@ -836,14 +805,11 @@ After these two browser redirects, the customer can be sent inside the iFrame to
 For more details about this issue and in order to obtain and provide the redirect URLs please contact a Twispay technical representative at the following email address: [*support@twispay.com*](mailto:support@twispaycom)
 
 # Custom email receipt specifications
-
  
 
 You can also customize the email receipt sent to the customers after a payment. You can send us the file once you build it and we will check and upload it to your account.
 
 The following tags can be used (the required ones are marked accordingly):
-
- 
 
 | **Tag  name**     | **Description**                | **Mandatory** |
 | ----------------- | ------------------------------ | ------------- |
@@ -857,7 +823,6 @@ The following tags can be used (the required ones are marked accordingly):
 | {{ currency }}    | the amount currency            | yes           |
 
  
-
 # Payout transactions for gambling (OCT/CFT)
 
  
