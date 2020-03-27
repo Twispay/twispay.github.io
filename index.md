@@ -32,9 +32,7 @@ The apiKey is listed in the site details view as “Private key”
 
 Note! The apiKey is unique for each website – if you had a test account, the apiKey used for tests is not the same as the one you will need to use for the live environment.
 
-<img src="./image.jpg" />
-
-[ Markdown Doesn't have Image Support]
+![](siteID&apiKey.gif)
 
 # Request parameters
 
