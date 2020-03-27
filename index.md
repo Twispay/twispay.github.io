@@ -578,7 +578,7 @@ When building a custom payment page you can use the following tags (the required
 
 | **Tag  name**                                                | **Description**                                              | **Mandatory** |
 | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------- |
-| {{ error }}                                                  | payment form error                                           | yes           |
+| {% raw %} {{ error }} {% endraw %}                                                  | payment form error                                           | yes           |
 | {{ cardId }}                                                 | card selector for choosing one  of the already used cards    | no            |
 | {{ cardHolderName }}                                         | card holder name                                             | yes           |
 | {{ cardHolderCountry }}                                      | card holder country                                          | no            |
@@ -614,7 +614,7 @@ Note! You can set a default language for your payment page to load in by sending
 
 To provide a custom payment form field (only text fields):
 <!-- {% raw %} -->
- ```
+ ```twig
  {{ customField({
   'name': 'unique-name',
   'label': 'Field label',
@@ -631,7 +631,7 @@ Note! The `lang` key, by default will be set to `en`. If you want to provide tra
  To provide custom text in multiple languages:
 
 <!-- {% raw %} -->
-```
+```twig
 {{ translate({
   'en': 'Some text in english',
   'fr': 'Quelques textes en anglais'
