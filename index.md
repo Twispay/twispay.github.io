@@ -1,14 +1,14 @@
 # Table of Contents  
 
-1. [Introduction](#introduction)
-2. [Request Parameters](#request-parameters)
-3. [Building the request](#building-the-request)
-4. [Response parameters](#response-parameters)
-5. [Testing the Integration](#testing-the-integration)
-6. [Custom Payment Page Specifications](#custom-payment-page-specifications)
-7. [iFrame Payment Form](#iframe-payment-form)
-8. [Custom email receipt specifications](#custom-email-receipt-specifications)
-9. [Payout Transactions for Gambling](#payout-transactions-for-gambling-octcft)
+[Introduction](#introduction)  
+[Request Parameters](#request-parameters)  
+[Building the request](#building-the-request)  
+[Response parameters](#response-parameters)  
+[Testing the Integration](#testing-the-integration)  
+[Custom Payment Page Specifications](#custom-payment-page-specifications)  
+[iFrame Payment Form](#iframe-payment-form)  
+[Custom email receipt specifications](#custom-email-receipt-specifications)  
+[Payout Transactions for Gambling](#payout-transactions-for-gambling-octcft)  
 
 # Introduction  
 
