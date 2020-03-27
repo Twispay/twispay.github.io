@@ -5,7 +5,7 @@
 3. Request Parameters  
 4. Decrypting the Response  
 5. Testing the Integration  
-6. Custom Payment Page Specifications  
+6. [Custom Payment Page Specifications](#custom-payment-page-specifications)
 7. iFrame Payment Form  
 8. Payout Transactions for Gambling  
 
