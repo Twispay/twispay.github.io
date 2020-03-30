@@ -467,17 +467,12 @@ The `status` key can have the following values: in-progress (only the AUTH was m
 
 The response you receive from Twispay can be decrypted in the following way:
 
-·   split the encrypted response by first comma (,);
-
-·   on the left side, you will get the IV (initialization vector);
-
-·   on the right side, you will get the encrypted data;
-
-·   decode both IV and data by using base64 algorithm;
-
-·   use openssl decrypt providing data, aes-256-cbc cipher, your secret key and the IV;
-
-·   the resulted decrypted value is the data, in JSON format.
+·   split the encrypted response by first comma (,);  
+·   on the left side, you will get the IV (initialization vector);  
+·   on the right side, you will get the encrypted data;  
+·   decode both IV and data by using base64 algorithm;  
+·   use openssl decrypt providing data, aes-256-cbc cipher, your secret key and the IV;  
+·   the resulted decrypted value is the data, in JSON format.  
 
 Here is an example of the decryption function (in PHP) for `opensslResult`:
 
@@ -830,7 +825,7 @@ For those merchants that require to do payouts to their customers the flow is as
 
 2   In the [response](#_Response_parameters) from us you will receive a ‘cardId’ parameter – this is the ID of the card used by the customer to do the initial deposit transaction
 
-3   Using the ‘cardId’ you can initiate a payout transaction by making an API call to POST /order (documentation found at http://docs.twispay.com/#!/Order/post_order) using the following mandatory parameters:
+3   Using the ‘cardId’ you can initiate a payout transaction by making an API call to POST /order (documentation found at [http://docs.twispay.com/](http://docs.twispay.com/)) using the following mandatory parameters:
 
  
 
