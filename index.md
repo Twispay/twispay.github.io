@@ -144,19 +144,19 @@ As a merchant you can collect and pass this data to the payment gateway (Twispay
 | mobilePhone              | object    | “cc” (Country code); type: string; pattern: "^[0-9]{1,3}$"  “subscriber” (Phone number); type: string; max length: 15 char |
 | workPhone                | object    | “cc” (Country code); type: string; pattern: "^[0-9]{1,3}$"  “subscriber” (Phone number); type: string; max  length: 15 char |
 | billAddrCity             | string    | Between 1 and 50 char                                        |
-| billAddrCountry          | string    | ISO 3166-1 numeric three-digit country code, other than exceptions listed in Table A.5; pattern: "^[0-9]{3}$" |
+| billAddrCountry          | string    | [ISO 3166-1](https://en.wikipedia.org/wiki/ISO_3166-1) numeric three-digit country code, other than exceptions listed in Table A.5; pattern: "^[0-9]{3}$" |
 | billAddrLine1            | string    | Between 1 and 50 char                                        |
 | billAddrLine2            | string    | Between 1 and 50 char                                        |
 | billAddrLine3            | string    | Between 1 and 50 char                                        |
 | billAddrPostCode         | string    | Max length: 16 char                                          |
 | billAddrState            | string    | Max length: 3 char; Should be the  country subdivision code defined in ISO 3166-2 |
 | shipAddrCity             | string    | Between 1 and 50 char                                        |
-| shipAddrCountry          | string    | ISO 3166-1 numeric three-digit country code, other  than exceptions listed in Table A.5; pattern: "^[0-9]{3}$" |
+| shipAddrCountry          | string    | [ISO 3166-1](https://en.wikipedia.org/wiki/ISO_3166-1) numeric three-digit country code, other  than exceptions listed in Table A.5; pattern: "^[0-9]{3}$" |
 | shipAddrLine1            | string    | Between 1 and 50 char                                        |
 | shipAddrLine2            | string    | Between 1 and 50 char                                        |
 | shipAddrLine3            | string    | Between 1 and 50 char                                        |
 | shipAddrPostCode         | string    | Between 1 and 16 char                                        |
-| shipAddrState            | string    | Between 1 and 3 char; Should be the country subdivision code defined in ISO 3166-2 |
+| shipAddrState            | string    | Between 1 and 3 char; Should be the country subdivision code defined in [ISO 3166-2](https://en.wikipedia.org/wiki/ISO_3166-2) |
 | addrMatch                | string    | Enum: “Y” or “N”; Indicates whether the Cardholder Shipping Address and Cardholder Billing Address are the same |
 
 By default, Twispay® will collect the following data from the card holders: “**browserAcceptHeader**”, “**browserIP**”, “**browserJavaScriptEnabled**”, “**browserUserAgent**”, “**browserLanguage**”; also if the card holder has “ **browserJavaScriptEnabled**” = true, then we will also get the following information: “**browserColorDepth**”, “**browserScreenHeight**”, “**browserScreenWidth**” and “**browserTZ**”.
