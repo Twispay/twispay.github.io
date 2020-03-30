@@ -19,8 +19,6 @@ page service
 processing  
 This document will help you understand and integrate twispay’s interface and its parameters to process a payment transaction properly for your shop. 
 
-The Twispay® payment page is a securely hosted web payment form designed to accept internet e-commerce transactions.  
-
 The twispay® payment page is a securely hosted web payment form designed to accept internet e-commerce transactions.  
 With twispay’s payment page in place a merchant is no longer exposed to the sensitive payment details required to process a payment, because the customers are redirected from the merchant website to a payment form hosted by twispay®. To accomplish this the merchant displays a "Purchase" button within an HTML form on their website that will submit a POST request to twispay® secure site.
 
@@ -30,11 +28,11 @@ With twispay’s payment page in place a merchant is no longer exposed to the se
 Within the parameters of this HTML form, the merchant specifies the location of the twispay® payment page along with payment details and authentication information. These are usually implemented as hidden input in the HTML form.
 At the end of the payment process all parameters that define the status of the transaction can be returned to the merchant in real-time at a provided URL (server-to-server notification URL).
 
-Once you have your Merchant  account, you will be given a siteId and a secret unique key (aka apiKey). This key is used to authenticate and communicate with our servers securely. The apiKey can be found in the merchant account (https://merchant.twispay.com or for test accounts https://merchant-stage.twispay.com), under the “Sites” menu – clicking the number found at column # will bring up a site details window.
+With your account, you will be given a siteId and a secret unique key (aka apiKey). This key is used to authenticate and communicate with our servers securely. The apiKey can be found in the merchant account (https://merchant.twispay.com or for test accounts https://merchant-stage.twispay.com), under the “Sites” menu – clicking the number found at column # will bring up a site details window.
 
-The apiKey is listed in the site details view as “Private key”
+The apiKey is listed in the Website details view as “Private key”
 
-Note! The apiKey is unique for each website – if you had a test account, the apiKey used for tests is not the same as the one you will need to use for the live environment.
+**Note!** The apiKey is unique for each website – if you had a test account, the apiKey used for tests is not the same as the one you will need to use for the live environment.
 
 ![](siteID&apiKey.gif)
 
@@ -104,7 +102,7 @@ These are the parameters that can be included in your Secure request.
 
 Bellow is explained the structure of an item array present in the „items” array. 
 
-Note! Please consider that the sum of the items amounts must match the amount of the transaction.
+**Note!** Please consider that the sum of the items amounts must match the amount of the transaction.
 
 | **Name**                       | **Type**  | **Details**                                                  |
 | ------------------------------ | --------- | ------------------------------------------------------------ |
@@ -116,11 +114,11 @@ Note! Please consider that the sum of the items amounts must match the amount of
 | order.items[0].vatPercent      | float     | `VAT percent`                                                |
 | order.items[0].itemDescription | string    | `description => string - varchar 500`                        |
 
-Note! You can validate your JSON using any JSON validator and the Twispay validation schema, which you can find here: https://secure.twispay.com/schema/v1/order.schema.json.
+**Note!** You can validate your JSON using any JSON validator and the Twispay validation schema, which you can find here: https://secure.twispay.com/schema/v1/order.schema.json.
 
-Note! For Level 3 Data, item information (Cart/products details parameters) becomes mandatory besides the Level 3 Data additional request parameters listed in the table.
+**Note!** For Level 3 Data, item information (Cart/products details parameters) becomes mandatory besides the Level 3 Data additional request parameters listed in the table.
 
-Note! The ‘orderId’ must be unique for each request since it is stored in the customer’s cookies and re-attempting to make a payment with the same ID will immediately return the same result as the initial submit.
+**Note!** The ‘orderId’ must be unique for each request since it is stored in the customer’s cookies and re-attempting to make a payment with the same ID will immediately return the same result as the initial submit.
 
 Ex: if the first attempt failed, re-submitting with the same ID will take the customer directly onto the page where the fail message is displayed.
 
@@ -169,7 +167,7 @@ By default, Twispay® will collect the following data from the card holders: “
 
 Sending this data inside the ***threeDSecureData\*** parameter will override the information collected by us.
 
-Note! You can validate your JSON using any validator and the Twispay validation schema, which you can find here: https://secure-stage.twispay.com/schema/3ds/3ds.schema.json 
+**Note!** You can validate your JSON using any validator and the Twispay validation schema, which you can find here: https://secure-stage.twispay.com/schema/3ds/3ds.schema.json 
 
 
 
@@ -395,7 +393,7 @@ FORM;
 
 ```
 
-Note! You can find examples of requests online on: https://github.com/Twispay
+**Note!** You can find examples of requests online on: https://github.com/Twispay
 
 
 # Response parameters
@@ -408,11 +406,11 @@ You will have to provide us with a “server to server notification URL” and a
 
 The POST parameter result (`result` and `opensslResult`) sent via the “server to server notification URL” will contain the following keys: `externalOrderId`, `identifier`, `status`, `customerId`, `orderId`, `cardId`, `transactionId`, `transactionKind`, `timestamp`, `amount`, `currency`, `custom` and `customField`
 
-Note! `result` is only used for backwards compatibility and we recommend using only `opensslResult`
+**Note!** `result` is only used for backwards compatibility and we recommend using only `opensslResult`
 
-Note! When you retrieve data from the api [ORDER ID GET] the orderId parameter is the external order ID ]
+**Note!** When you retrieve data from the api [ORDER ID GET] the orderId parameter is the external order ID ]
 
-Note! The result parameter will be encrypted.
+**Note!** The result parameter will be encrypted.
 
 Here is an example of an `opensslResult` (after being decrypted):
 
@@ -442,9 +440,9 @@ The POST parameter result (`result` and `opensslResult`) sent via the “payment
 
  
 
-Note! `result` is only used for backwards compatibility and we recommend using only `opensslResult` 
+**Note!** `result` is only used for backwards compatibility and we recommend using only `opensslResult` 
 
-Note! The result parameter will be encrypted.
+**Note!** The result parameter will be encrypted.
 
 
 
@@ -517,7 +515,7 @@ function decrypt($encrypted, $key = 'YOUR API KEY HERE')
 
 ```
 
-Note! Make sure you add your own apiKey.
+**Note!** Make sure you add your own apiKey.
 
 After the transaction is completed (either as successful or failed), the client can be redirected to a URL (payment page back URL) specified by the merchant. 
 
@@ -584,7 +582,7 @@ When building a custom payment page you can use the following tags (the required
 | <!-- {% raw %} --> {{ merchant }} <!-- {% endraw %} --> | name of the merchant | yes |
 | <!-- {% raw %} --> {{ mandatoryFields }} <!-- {% endraw %} --> | a description of mandatory fields | no |
 
-Note! You can set a default language for your payment page to load in by sending GET parameter ?lang=<language_code> in the URL. The following language options are available at the moment: en, fr, de, ro, es, it, ru (example: https://secure.twispay.com/card?lang=it)
+**Note!** You can set a default language for your payment page to load in by sending GET parameter ?lang=<language_code> in the URL. The following language options are available at the moment: en, fr, de, ro, es, it, ru (example: https://secure.twispay.com/card?lang=it)
 
 To provide a custom payment form field (only text fields):
 <!-- {% raw %} -->
@@ -600,7 +598,7 @@ To provide a custom payment form field (only text fields):
 ```
 <!-- {% endraw %} -->
 
-Note! The `lang` key, by default will be set to `en`. If you want to provide translations, just include the same custom field definition, using the same `name`, in different language (the `lang` key will need to be set with the two chars language code).
+**Note!** The `lang` key, by default will be set to `en`. If you want to provide translations, just include the same custom field definition, using the same `name`, in different language (the `lang` key will need to be set with the two chars language code).
 
  To provide custom text in multiple languages:
 
@@ -613,9 +611,9 @@ Note! The `lang` key, by default will be set to `en`. If you want to provide tra
 ```
 <!-- {% endraw %} -->
 
-Note! The key is the language (provided in two chars language code) and the value is the text in that language. The `en` should always be defined. If current page's language is not defined - the `en` version will be used (or the first defined language when `en` is undefined). 
+**Note!** The key is the language (provided in two chars language code) and the value is the text in that language. The `en` should always be defined. If current page's language is not defined - the `en` version will be used (or the first defined language when `en` is undefined). 
 
-Note! You can also use this online tool to create a customized design for your Twispay payment page: 
+**Note!** You can also use this online tool to create a customized design for your Twispay payment page: 
 
 https://secure-stage.twispay.com/build.php
 
@@ -625,7 +623,7 @@ When you are done, download the HTML and CSS files and send them for review to t
 
 If you want to implement a custom checkout experience for your customers and accept online payment on your website without having to be PCI DSS compliant, we recommend using the iFrame payment form. Instead of redirecting the customers to our hosted payment page, they will remain on your website to make the payment and twispay® will securely collect the necessary payment information and get it authorized for you; all the sensitive card data will be collected and managed by twispay®.
 
-Note! Make sure to select the pop-up payment page option when selecting the template in your merchant account (Sites > Website details > Template).
+**Note!** Make sure to select the pop-up payment page option when selecting the template in your merchant account (Sites > Website details > Template).
 
 The iFrame element integration has two options:
 
@@ -859,7 +857,7 @@ For those merchants that require to do payouts to their customers the flow is as
 
  
 
-Note! The ‘description’ and ‘externalOrderId’ parameters are not mandatory but highly recommended to send because it helps merchants keep track of the orders and also helps identify what is the object of the transaction
+**Note!** The ‘description’ and ‘externalOrderId’ parameters are not mandatory but highly recommended to send because it helps merchants keep track of the orders and also helps identify what is the object of the transaction
 
 Twispay API can be called at the following URLs:
 
