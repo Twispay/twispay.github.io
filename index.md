@@ -128,23 +128,23 @@ As a merchant you can collect and pass this data to the payment gateway (Twispay
 
 | **Name**                 | **Type**  | **Details**                                                  |
 | ------------------------ | --------- | ------------------------------------------------------------ |
-| browserAcceptHeader      | `string`  | Between 2 and 2048 char; Exact content of the HTTP  accept headers as sent to the 3DS Requestor from the Cardholder’s browser |
-| browserIP                | `string`  | Format ipv4 or ipv6; IP address of the  browser as returned by the HTTP headers to the 3DS Requestor |
-| browserJavaEnabled       | `boolean` | Represents  the ability of the cardholder browser to execute Java. Value is returned from  the navigator.javaEnabled property |
-| browserJavaScriptEnabled | boolean   | `Boolean that represents the ability of the cardholder browser to execute JavaScript` |
-| browserLanguage          | string    | `Between 1 and 8 char; Value representing the browser language as defined in IETF BCP47. Returned from navigator.language property` |
-| browserColorDepth        | string    | `Obtained from Cardholder browser using the screen.colorDepth property` |
-| browserScreenHeight      | string    | `Value is returned from the screen.height property; ``pattern: "^[1-9][0-9]{0,5}$"` |
-| browserScreenWidth       | string    | `Value is returned from the screen.width property; `  pattern: "^[1-9][0-9]{0,5}$" |
-| browserTZ                | string    | `Time-zone offset in minutes between UTC and the Cardholder browser local time. Note that the offset is positive if the local time zone is behind UTC and negative if it is ahead; ``"pattern": "^[\\+\\-]?[0-9]{1,5}$"` |
+| browserAcceptHeader      | string  | Between 2 and 2048 char; Exact content of the HTTP  accept headers as sent to the 3DS Requestor from the Cardholder’s browser |
+| browserIP                | string  | Format ipv4 or ipv6; IP address of the  browser as returned by the HTTP headers to the 3DS Requestor |
+| browserJavaEnabled       | boolean | Represents  the ability of the cardholder browser to execute Java. Value is returned from  the navigator.javaEnabled property |
+| browserJavaScriptEnabled | boolean   | Boolean that represents the ability of the cardholder browser to execute JavaScript |
+| browserLanguage          | string    | Between 1 and 8 char; Value representing the browser language as defined in IETF BCP47. Returned from navigator.language property |
+| browserColorDepth        | string    | Obtained from Cardholder browser using the screen.colorDepth property |
+| browserScreenHeight      | string    | Value is returned from the screen.height property; pattern: "^[1-9][0-9]{0,5}$" |
+| browserScreenWidth       | string    | Value is returned from the screen.width property;   pattern: "^[1-9][0-9]{0,5}$" |
+| browserTZ                | string    | Time-zone offset in minutes between UTC and the Cardholder browser local time. Note that the offset is positive if the local time zone is behind UTC and negative if it is ahead; "pattern": "^[\\+\\-]?[0-9]{1,5}$"|
 | browserUserAgent         | string    | Between 2 and 2048 char                                      |
 | cardholderName           | string    | Between 2 and 45 char                                        |
 | Email                    | string    | Max length: 254 char; format email                           |
-| homePhone                | object    | `“cc” (Country code); type: string; pattern: "^[0-9]{1,3}$"`  “subscriber” (Phone number); type: string; max  length: 15 char |
-| mobilePhone              | object    | `“cc” (Country code); type: string; pattern: "^[0-9]{1,3}$"`  “subscriber” (Phone number); type: string; max length: 15 char |
-| workPhone                | object    | `“cc” (Country code); type: string; pattern: "^[0-9]{1,3}$"`  “subscriber” (Phone number); type: string; max  length: 15 char |
+| homePhone                | object    | “cc” (Country code); type: string; pattern: "^[0-9]{1,3}$"  “subscriber” (Phone number); type: string; max  length: 15 char |
+| mobilePhone              | object    | “cc” (Country code); type: string; pattern: "^[0-9]{1,3}$"  “subscriber” (Phone number); type: string; max length: 15 char |
+| workPhone                | object    | “cc” (Country code); type: string; pattern: "^[0-9]{1,3}$"  “subscriber” (Phone number); type: string; max  length: 15 char |
 | billAddrCity             | string    | Between 1 and 50 char                                        |
-| billAddrCountry          | string    | `ISO 3166-1 numeric three-digit country code, other than exceptions listed in Table A.5; pattern: "^[0-9]{3}$"` |
+| billAddrCountry          | string    | ISO 3166-1 numeric three-digit country code, other than exceptions listed in Table A.5; pattern: "^[0-9]{3}$" |
 | billAddrLine1            | string    | Between 1 and 50 char                                        |
 | billAddrLine2            | string    | Between 1 and 50 char                                        |
 | billAddrLine3            | string    | Between 1 and 50 char                                        |
@@ -156,8 +156,8 @@ As a merchant you can collect and pass this data to the payment gateway (Twispay
 | shipAddrLine2            | string    | Between 1 and 50 char                                        |
 | shipAddrLine3            | string    | Between 1 and 50 char                                        |
 | shipAddrPostCode         | string    | Between 1 and 16 char                                        |
-| shipAddrState            | string    | `Between 1 and 3 char; Should be the country subdivision code defined in ISO 3166-2` |
-| addrMatch                | string    | `Enum: “Y” or “N”; Indicates whether the Cardholder Shipping Address and Cardholder Billing Address are the same` |
+| shipAddrState            | string    | Between 1 and 3 char; Should be the country subdivision code defined in ISO 3166-2 |
+| addrMatch                | string    | Enum: “Y” or “N”; Indicates whether the Cardholder Shipping Address and Cardholder Billing Address are the same |
 
 By default, Twispay® will collect the following data from the card holders: “**browserAcceptHeader**”, “**browserIP**”, “**browserJavaScriptEnabled**”, “**browserUserAgent**”, “**browserLanguage**”; also if the card holder has “ **browserJavaScriptEnabled**” = true, then we will also get the following information: “**browserColorDepth**”, “**browserScreenHeight**”, “**browserScreenWidth**” and “**browserTZ**”.
 
