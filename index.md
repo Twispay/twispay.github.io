@@ -38,10 +38,6 @@ The apiKey is listed in the Website details view as “Private key”
 
 # Request parameters
 
-## Customer, Order and Transaction information
-
-These are the parameters that can be included in your Secure request. 
-
 | **Name**                                       |                      **Type / Length**                       | **Mandatory** |
 | :--------------------------------------------- | :----------------------------------------------------------: | ------------- |
 | Authentication parameters**                    |                                                              |               |
