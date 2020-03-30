@@ -821,7 +821,7 @@ For those merchants that require to do payouts to their customers the flow is as
 
  
 
-1. The initial deposit Order /POST is done with the required [request parameters](#_Request_parameters)
+1. The initial deposit Order /POST is done with the required [request parameters](#request-parameters)
 
 2. In the [response](#response-parameters) from us you will receive a ‘cardId’ parameter – this is the ID of the card used by the customer to do the initial deposit transaction
 
