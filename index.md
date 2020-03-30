@@ -22,13 +22,13 @@ This document will help you understand and integrate twispay’s interface and i
 The twispay® payment page is a securely hosted web payment form designed to accept internet e-commerce transactions.  
 With twispay’s payment page in place a merchant is no longer exposed to the sensitive payment details required to process a payment, because the customers are redirected from the merchant website to a payment form hosted by twispay®. To accomplish this the merchant displays a "Purchase" button within an HTML form on their website that will submit a POST request to twispay® secure site.
 
-- For production, the secure URL is: https://secure.twispay.com
-- For test, the secure URL is: https://secure-stage.twispay.com
+- For production, the secure URL is: [https://secure.twispay.com](https://secure.twispay.com)
+- For test, the secure URL is: [https://secure-stage.twispay.com](https://secure-stage.twispay.com)
 
 Within the parameters of this HTML form, the merchant specifies the location of the twispay® payment page along with payment details and authentication information. These are usually implemented as hidden input in the HTML form.
 At the end of the payment process all parameters that define the status of the transaction can be returned to the merchant in real-time at a provided URL (server-to-server notification URL).
 
-With your account, you will be given a siteId and a secret unique key (aka apiKey). This key is used to authenticate and communicate with our servers securely. The apiKey can be found in the merchant account (https://merchant.twispay.com or for test accounts https://merchant-stage.twispay.com), under the “Sites” menu – clicking the number found at column # will bring up a site details window.
+With your account, you will be given a siteId and a secret unique key (aka apiKey). This key is used to authenticate and communicate with our servers securely. The apiKey can be found in the merchant account ([https://merchant.twispay.com](https://merchant.twispay.com) or for test accounts [https://merchant-stage.twispay.com](https://merchant-stage.twispay.com)), under the “Sites” menu – clicking the number found at column # will bring up a site details window.
 
 The apiKey is listed in the Website details view as “Private key”
 
@@ -110,7 +110,7 @@ Bellow is explained the structure of an item array present in the „items” ar
 | order.items[0].vatPercent      | float     | `VAT percent`                                                |
 | order.items[0].itemDescription | string    | `description => string - varchar 500`                        |
 
-**Note!** You can validate your JSON using any JSON validator and the Twispay validation schema, which you can find here: https://secure.twispay.com/schema/v1/order.schema.json.
+**Note!** You can validate your JSON using any JSON validator and the Twispay validation schema, which you can find here: [https://secure.twispay.com/schema/v1/order.schema.json](https://secure.twispay.com/schema/v1/order.schema.json).
 
 **Note!** For Level 3 Data, item information (Cart/products details parameters) becomes mandatory besides the Level 3 Data additional request parameters listed in the table.
 
@@ -163,7 +163,7 @@ By default, Twispay® will collect the following data from the card holders: “
 
 Sending this data inside the ***threeDSecureData\*** parameter will override the information collected by us.
 
-**Note!** You can validate your JSON using any validator and the Twispay validation schema, which you can find here: https://secure-stage.twispay.com/schema/3ds/3ds.schema.json 
+**Note!** You can validate your JSON using any validator and the Twispay validation schema, which you can find here: [https://secure-stage.twispay.com/schema/3ds/3ds.schema.json](https://secure-stage.twispay.com/schema/3ds/3ds.schema.json)
 
 
 
@@ -374,7 +374,7 @@ class Twispay
 
 ```
 
-Depending on the environment submit this form to either our test URL (https://secure-stage.twispay.com/) or the the production URL (https://secure.twispay.com/).
+Depending on the environment submit this form to either our test URL ([https://secure-stage.twispay.com/](https://secure-stage.twispay.com/)) or the the production URL ([https://secure.twispay.com/](https://secure.twispay.com/)).
 
 
 
@@ -389,7 +389,7 @@ FORM;
 
 ```
 
-**Note!** You can find examples of requests online on: https://github.com/Twispay
+**Note!** You can find examples of requests online on: [https://github.com/Twispay](https://github.com/Twispay)
 
 
 # Response parameters
@@ -578,7 +578,7 @@ When building a custom payment page you can use the following tags (the required
 | <!-- {% raw %} --> {{ merchant }} <!-- {% endraw %} --> | name of the merchant | yes |
 | <!-- {% raw %} --> {{ mandatoryFields }} <!-- {% endraw %} --> | a description of mandatory fields | no |
 
-**Note!** You can set a default language for your payment page to load in by sending GET parameter ?lang=<language_code> in the URL. The following language options are available at the moment: en, fr, de, ro, es, it, ru (example: https://secure.twispay.com/card?lang=it)
+**Note!** You can set a default language for your payment page to load in by sending GET parameter ?lang=<language_code> in the URL. The following language options are available at the moment: en, fr, de, ro, es, it, ru (example: [https://secure.twispay.com/card?lang=it](https://secure.twispay.com/card?lang=it))
 
 To provide a custom payment form field (only text fields):
 <!-- {% raw %} -->
@@ -611,7 +611,7 @@ To provide a custom payment form field (only text fields):
 
 **Note!** You can also use this online tool to create a customized design for your Twispay payment page: 
 
-https://secure-stage.twispay.com/build.php
+[https://secure-stage.twispay.com/build.php](https://secure-stage.twispay.com/build.php)
 
 When you are done, download the HTML and CSS files and send them for review to the Twispay technical team at the following email address: [*support@twispay.com*](mailto:support@twispay.com)
 
@@ -857,7 +857,7 @@ For those merchants that require to do payouts to their customers the flow is as
 
 Twispay API can be called at the following URLs:
 
-For production, the API URL is: https://api.twispay.com
+For production, the API URL is: [https://api.twispay.com](https://api.twispay.com)
 
 **For test, the API URL is:** **[https://api-stage.twispay.com](https://api-stage.twispay.com )**
 
