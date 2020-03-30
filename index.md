@@ -810,14 +810,14 @@ The following tags can be used (the required ones are marked accordingly):
 
 | **Tag  name**     | **Description**                | **Mandatory** |
 | ----------------- | ------------------------------ | ------------- |
-| {{ logo }}        | a logo image                   | no            |
-| {{ merchant }}    | merchant name                  | no            |
-| {{ customer }}    | customer name                  | no            |
-| {{ date }}        | the transaction date and time  | yes           |
-| {{ transaction }} | the transaction ID             | yes           |
-| {{ description }} | transaction/order  description | yes           |
-| {{ amount }}      | the amount                     | yes           |
-| {{ currency }}    | the amount currency            | yes           |
+| <!-- {% raw %} --> {{ logo }} <!-- {% endraw %} -->       | a logo image                   | no            |
+| <!-- {% raw %} --> {{ merchant }} <!-- {% endraw %} -->   | merchant name                  | no            |
+| <!-- {% raw %} --> {{ customer }} <!-- {% endraw %} -->   | customer name                  | no            |
+| <!-- {% raw %} --> {{ date }} <!-- {% endraw %} -->       | the transaction date and time  | yes           |
+| <!-- {% raw %} --> {{ transaction }} <!-- {% endraw %} -->| the transaction ID             | yes           |
+| <!-- {% raw %} --> {{ description }} <!-- {% endraw %} -->| transaction/order  description | yes           |
+| <!-- {% raw %} --> {{ amount }} <!-- {% endraw %} -->     | the amount                     | yes           |
+| <!-- {% raw %} --> {{ currency }} <!-- {% endraw %} -->   | the amount currency            | yes           |
 
  
 # Payout transactions for gambling (OCT/CFT)
