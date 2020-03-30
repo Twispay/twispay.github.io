@@ -404,8 +404,6 @@ The POST parameter result (`result` and `opensslResult`) sent via the “server 
 
 **Note!** `result` is only used for backwards compatibility and we recommend using only `opensslResult`
 
-**Note!** When you retrieve data from the api [ORDER ID GET] the orderId parameter is the external order ID ]
-
 **Note!** The result parameter will be encrypted.
 
 Here is an example of an `opensslResult` (after being decrypted):
@@ -465,7 +463,7 @@ Array(
 
 The `status` key can have the following values: in-progress (only the AUTH was made), complete-ok (complete, successful transaction), complete-failed (failed transaction).
 
-
+# Decrypting the response
 
 The response you receive from Twispay can be decrypted in the following way:
 
