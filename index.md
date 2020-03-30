@@ -12,13 +12,17 @@
 
 # Introduction  
 
-This document is intended for Merchants / Web Developers who want to understand and integrate Twispay's payment process features with a merchant's website.   
+This document is intended for:  
+• Merchants who want to understand the payment processing features of the twispay® hosted payment
+page service  
+• Web Developers who integrate a merchant’s website with twispay® payment page for payment
+processing  
+This document will help you understand and integrate twispay’s interface and its parameters to process a payment transaction properly for your shop. 
 
 The Twispay® payment page is a securely hosted web payment form designed to accept internet e-commerce transactions.  
 
-With Twispay's payment page in place, customers are redirected from the merchant's website to a payment form hosted by Twispay, so the merchant is no longer exposed to the sensitive payment details (Card Number, CVV, etc.) required to process a payment.   
-
-To accomplish this, the merchant displays a "Purchase" button within an HTML form on their website that will submit a POST request to the twispay® secure site.  
+The twispay® payment page is a securely hosted web payment form designed to accept internet e-commerce transactions.  
+With twispay’s payment page in place a merchant is no longer exposed to the sensitive payment details required to process a payment, because the customers are redirected from the merchant website to a payment form hosted by twispay®. To accomplish this the merchant displays a "Purchase" button within an HTML form on their website that will submit a POST request to twispay® secure site.
 
 - For production, the secure URL is: https://secure.twispay.com
 - For test, the secure URL is: https://secure-stage.twispay.com
@@ -169,7 +173,7 @@ Note! You can validate your JSON using any validator and the Twispay validation 
 
 
 
-Example of JSON containing 3D Secure 2.0 data 
+**Example of JSON containing 3D Secure 2.0 data**   
 (please consider that this JSON must be base64encoded in the threeDSecureData param)
 
 ```json
