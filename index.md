@@ -102,13 +102,13 @@ Bellow is explained the structure of an item array present in the „items” ar
 
 | **Name**                       | **Type**  | **Details**                                                  |
 | ------------------------------ | --------- | ------------------------------------------------------------ |
-| order.items[0].item            | `string`  | name of the product                                          |
-| order.items[0].unitPrice       | `string`  | float (can have negative value  for discounts, vouchers, etc.) – including VAT |
-| order.items[0].units           | `integer` | quantity                                                     |
-| order.items[0].type            | string    | `string – one of: “physical”, “digital”`                     |
-| order.items[0].code            | string    | `code of the item => string - varchar 64`                    |
-| order.items[0].vatPercent      | float     | `VAT percent`                                                |
-| order.items[0].itemDescription | string    | `description => string - varchar 500`                        |
+| order.items[0].item            | string  | name of the product                                          |
+| order.items[0].unitPrice       | string  | float (can have negative value  for discounts, vouchers, etc.) – including VAT |
+| order.items[0].units           | integer | quantity                                                     |
+| order.items[0].type            | string    | string – one of: “physical”, “digital”                     |
+| order.items[0].code            | string    | code of the item => string - varchar 64                    |
+| order.items[0].vatPercent      | float     | VAT percent                                                |
+| order.items[0].itemDescription | string    | description => string - varchar 500                        |
 
 **Note!** You can validate your JSON using any JSON validator and the Twispay validation schema, which you can find here: [https://secure.twispay.com/schema/v1/order.schema.json](https://secure.twispay.com/schema/v1/order.schema.json).
 
