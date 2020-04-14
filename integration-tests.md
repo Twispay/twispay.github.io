@@ -1,4 +1,4 @@
-##Testing the integration
+## Testing the integration
 
 Once the integration is complete you can test different transaction results by creating orders with the following amounts: 
 
