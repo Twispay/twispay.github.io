@@ -31,3 +31,11 @@ and go directly to [modules documentation](#TODO).*
 
 ## How it works?
 
+A “Purchase” button within an HTML form on the merchant's website submits a POST request to twispay® secure site.
+
+For production, the secure URL is: https://secure.twispay.com    
+For test, the secure URL is: https://secure-stage.twispay.com
+
+In the POST Request parameters, the merchant specifies the location of the twispay® payment page, the payment details and authentication information. These are usually implemented as hidden input in the HTML form. 
+
+Here's a [Full List of Request Parameters](https://github.com/Twispay/twispay.github.io/blob/master/full-request-params.md). 
