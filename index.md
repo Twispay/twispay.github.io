@@ -40,7 +40,7 @@ The apiKey is listed in the Website details view as “Private key”
 
 | **Name**                                       |                      **Type / Length**                       | **Mandatory** |
 | :--------------------------------------------- | :----------------------------------------------------------: | ------------- |
-| *Authentication parameters*                    |                                                              |               |
+| **Authentication parameters**                    |                                                              |               |
 | siteId                                         |                integer – provided by twispay                 | yes           |
 | checksum                                       | string – see chapter [Request   signature](#_Request_signature) | yes           |
 | threeDSecureData                               | Base64Encoded 3DSecure 2.0 Json (structure explained bellow  under 3DSecure 2.0 section) | no            |
