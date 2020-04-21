@@ -71,3 +71,11 @@ Bellow is explained the structure of an item array present in the „items” ar
 | order.items[0].code            | string    | code of the item => string - varchar 64                    |
 | order.items[0].vatPercent      | float     | VAT percent                                                |
 | order.items[0].itemDescription | string    | description => string - varchar 500                        |
+
+**Note!** You can validate your JSON using any JSON validator and the Twispay validation schema, which you can find here: [https://secure.twispay.com/schema/v1/order.schema.json](https://secure.twispay.com/schema/v1/order.schema.json).
+
+**Note!** For Level 3 Data, item information (Cart/products details parameters) becomes mandatory besides the Level 3 Data additional request parameters listed in the table.
+
+**Note!** The ‘orderId’ must be unique for each request since it is stored in the customer’s cookies and re-attempting to make a payment with the same ID will immediately return the same result as the initial submit.
+
+Ex: if the first attempt failed, re-submitting with the same ID will take the customer directly onto the page where the fail message is displayed.
