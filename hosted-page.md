@@ -26,28 +26,63 @@ and go directly to [modules documentation](#TODO).*
 
 ![](siteID&apiKey.gif)
 
-***Note!** Keep you `apiKey` private on your server. If it is exposed somebody can do malitions operations in your name.*
+***Note!** Keep your `apiKey` private on your server. If it is exposed somebody can do malitions operations in your name.*
 
 
 ## How it works?
 
-The Merchant places a “Purchase” button within an HTML form on their website. This submits a POST request to twispay® secure site.
+The Merchant submits a POST request to twispay® secure site with the necessary parameters and receives a POST Response back.
+The process can be broken up into three simples steps:
+
+Prepare the checkout - Create the Payment Form - Receive the Payment Status
+
+
+### Prepare the Checkout
+
+The first step is to collect the required data from the customer, to be sent in the payment POST Request. The minimum mandatory parameters needed for the request are: siteId, amount, currency, orderType, cardTransactionMode, orderId, identifier, Description.
+
+Depending on the Bank you have a contract with you might have to provide additional parameters (email, address, country, city, state, etc).
+
+Here you can find a [Full List of Request Parameters](https://github.com/Twispay/twispay.github.io/blob/master/full-request-params.md) with descriptions. 
+
+
+### Create the Payment Form
+
+Next you need to create a Payment Form to Submit the Post Request. 
+Here's an example
+
+In the POST Request parameters, the merchant specifies the location of the twispay® payment page, the payment details and authentication information. These are usually implemented as hidden input in the HTML form. 
 
 For production, the secure URL is: https://secure.twispay.com    
 For test, the secure URL is: https://secure-stage.twispay.com
 
-In the POST Request parameters, the merchant specifies the location of the twispay® payment page, the payment details and authentication information. These are usually implemented as hidden input in the HTML form. 
+Here's an example of sample code used for generating a HTML form for a Twispay Order: 
 
-The Mandatory Parameters are:
+```Java
+// get the HTML form
+String base64JsonRequest = Twispay.getBase64JsonRequest(jsonOrderData);
+String base64Checksum = Twispay.getBase64Checksum(jsonOrderData, secretKey.getBytes(StandardCharsets.UTF_8));
+String hostName = twispayLive ? "secure.twispay.com" : "secure-stage.twispay.com";
+String htmlForm = "<form action=\"https://" + hostName + "\" method=\"post\" accept-charset=\"UTF-8\">\n"
+    + "<input type=\"hidden\" name=\"jsonRequest\" value=\"" + base64JsonRequest + "\">\n"
+    + "<input type=\"hidden\" name=\"checksum\" value=\"" + base64Checksum + "\">\n"
+    + "<input type=\"submit\" value=\"Pay\">\n"
+    + "</form>";
+```
 
-- Placeholder1
-- Placeholder2
-- Placeholder3
-- Placeholder4
-- Placeholder5
 
 
-Here's a [Full List of Request Parameters](https://github.com/Twispay/twispay.github.io/blob/master/full-request-params.md) with description. 
+
+
+
+
+
+
+
+
+
+
+
 
 After receiving and processing the request, Twispay sends back a response with useful data. This response is sent via a “server to server notification URL” and a “payment page back URL” provided by the Merchant, right after the payment, regardless of the result.
 
@@ -80,4 +115,9 @@ Additionally, the Merchant can
  
 }  
 
-
+//
+//
+//
+//
+//
+//
