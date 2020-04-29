@@ -71,11 +71,11 @@ You can find SDK Examples at the following links: [PHP](https://github.com/Twisp
 
 After processing the request, Twispay sends back a response with data via a “server to server notification URL” and a “payment page back URL” provided by the Merchant, right after the payment, regardless of the result.
 
-After the transaction is completed (either as successful or failed), the client can be redirected to a URL (payment page back URL) specified by the merchant.
+After the transaction is completed, the client can be redirected to a URL (payment page back URL) specified by the merchant.
 
 The POST parameter result (result and opensslResult) sent via the “server to server notification URL” will contain the following keys: externalOrderId, identifier, status, customerId, orderId, cardId, transactionId, transactionKind, timestamp, amount, currency, custom and customField.
 
-The result parameter will be encrypted, to it will have to be decrypted to make the data readable. 
+The result parameter will be encrypted, so it will have to be decrypted to make the data readable. 
 Here's how you can do so [Link to Decryption Guide Page].
 
 See Also:
