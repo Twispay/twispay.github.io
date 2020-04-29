@@ -37,7 +37,7 @@ The process can be broken up into three simples steps:
 Prepare the checkout - Create the Payment Form - Receive the Payment Status
 
 
-### 1.Prepare the Checkout
+### Prepare the Checkout
 
 The first step is to collect the required data from the customer, to be sent in the payment POST Request. The minimum mandatory parameters needed for the request are: siteId, amount, currency, orderType, cardTransactionMode, orderId, identifier, Description.
 
@@ -46,9 +46,7 @@ Depending on the Bank you have a contract with you might have to provide additio
 Here you can find a [Full List of Request Parameters](https://github.com/Twispay/twispay.github.io/blob/master/full-request-params.md) with descriptions. 
 
 
-### 2.Create the Payment Form
-
-Next you need to create a Payment Form to Submit the Post Request. 
+### Create the Payment Form
 
 In the POST Request parameters, the merchant specifies the location of the twispay® payment page, the payment details and authentication information. These are usually implemented as hidden input in the HTML form. 
 
@@ -68,8 +66,8 @@ String htmlForm = "<form action=\"https://" + hostName + "\" method=\"post\" acc
     + "<input type=\"submit\" value=\"Pay\">\n"
     + "</form>";
 ```
-
-### 3.Receive the Payment Status
+You can find SDK Examples at the following links: [PHP](https://github.com/Twispay/hostedpage-php-sdk), [DotNet](https://github.com/Twispay/hostedpage-dotnet-sdk), [NodeJS](https://github.com/Twispay/hostedpage-nodejs-sdk), [Python](https://github.com/Twispay/hostedpage-python-sdk), [Java](https://github.com/Twispay/hostedpage-java-sdk).
+### Receive the Payment Status
 
 After processing the request, Twispay sends back a response with data via a “server to server notification URL” and a “payment page back URL” provided by the Merchant, right after the payment, regardless of the result.
 
