@@ -31,11 +31,46 @@ and go directly to [modules documentation](#TODO).*
 
 ## How it works?
 
-A “Purchase” button within an HTML form on the merchant's website submits a POST request to twispay® secure site.
+The Merchant places a “Purchase” button within an HTML form on their website. This submits a POST request to twispay® secure site.
 
 For production, the secure URL is: https://secure.twispay.com    
 For test, the secure URL is: https://secure-stage.twispay.com
 
 In the POST Request parameters, the merchant specifies the location of the twispay® payment page, the payment details and authentication information. These are usually implemented as hidden input in the HTML form. 
 
-Here's a [Full List of Request Parameters](https://github.com/Twispay/twispay.github.io/blob/master/full-request-params.md). 
+The Mandatory Parameters are:
+
+- Placeholder1
+- Placeholder2
+- Placeholder3
+- Placeholder4
+- Placeholder5
+
+
+Here's a [Full List of Request Parameters](https://github.com/Twispay/twispay.github.io/blob/master/full-request-params.md) with description. 
+
+After receiving and processing the request, Twispay sends back a response with useful data. This response is sent via a “server to server notification URL” and a “payment page back URL” provided by the Merchant, right after the payment, regardless of the result.
+
+The POST parameter result (result and opensslResult) sent via the “server to server notification URL” will contain the following keys: externalOrderId, identifier, status, customerId, orderId, cardId, transactionId, transactionKind, timestamp, amount, currency, custom and customField.
+
+Note! The result parameter will be encrypted.
+
+The response will have to be decrypted to make the data readable. 
+Here's how you can do so [Link to Decryption Guide Page].
+
+{
+The following pages contain additional information about the platform and its features. Please take the time to read through them where necessary, as the above is only a basic guide to get things running. 
+
+- Custom payment page specifications
+- iFrame payment form
+- Custom email receipt specifications
+- Payout transactions for gambling (OCT/CFT)
+}
+
+OR
+
+{
+The Merchant can also: - Each Feature
+}
+
+
