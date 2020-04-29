@@ -75,7 +75,8 @@ OR
 
 { 
 
-The Merchant can also: - Each Feature 
+The Merchant can also: 
+Additionally, the Merchant can
  
 }  
 
