@@ -53,7 +53,7 @@ In the POST Request parameters, the merchant specifies the location of the twisp
 For production, the secure URL is: https://secure.twispay.com    
 For test, the secure URL is: https://secure-stage.twispay.com
 
-Here's an example of sample code used for generating a HTML form for a Twispay Order: 
+Here's an example of Java sample code used for generating a HTML form for a Twispay Order: 
 
 ```Java
 // get the HTML form
