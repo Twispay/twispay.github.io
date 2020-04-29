@@ -49,7 +49,6 @@ Here you can find a [Full List of Request Parameters](https://github.com/Twispay
 ### Create the Payment Form
 
 Next you need to create a Payment Form to Submit the Post Request. 
-Here's an example
 
 In the POST Request parameters, the merchant specifies the location of the twispay® payment page, the payment details and authentication information. These are usually implemented as hidden input in the HTML form. 
 
@@ -72,15 +71,13 @@ String htmlForm = "<form action=\"https://" + hostName + "\" method=\"post\" acc
 
 ### Receive the Payment Status
 
-After processing the request, Twispay sends back a response with data. This response is sent via a “server to server notification URL” and a “payment page back URL” provided by the Merchant, right after the payment, regardless of the result.
+After processing the request, Twispay sends back a response with data via a “server to server notification URL” and a “payment page back URL” provided by the Merchant, right after the payment, regardless of the result.
 
 After the transaction is completed (either as successful or failed), the client can be redirected to a URL (payment page back URL) specified by the merchant.
 
 The POST parameter result (result and opensslResult) sent via the “server to server notification URL” will contain the following keys: externalOrderId, identifier, status, customerId, orderId, cardId, transactionId, transactionKind, timestamp, amount, currency, custom and customField.
 
-Note! The result parameter will be encrypted.
-
-The response will have to be decrypted to make the data readable. 
+The result parameter will be encrypted, to it will have to be decrypted to make the data readable. 
 Here's how you can do so [Link to Decryption Guide Page].
 
 See Also:
