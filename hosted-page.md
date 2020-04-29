@@ -51,6 +51,8 @@ Here's a [Full List of Request Parameters](https://github.com/Twispay/twispay.gi
 
 After receiving and processing the request, Twispay sends back a response with useful data. This response is sent via a “server to server notification URL” and a “payment page back URL” provided by the Merchant, right after the payment, regardless of the result.
 
+After the transaction is completed (either as successful or failed), the client can be redirected to a URL (payment page back URL) specified by the merchant.
+
 The POST parameter result (result and opensslResult) sent via the “server to server notification URL” will contain the following keys: externalOrderId, identifier, status, customerId, orderId, cardId, transactionId, transactionKind, timestamp, amount, currency, custom and customField.
 
 Note! The result parameter will be encrypted.
@@ -61,16 +63,20 @@ Here's how you can do so [Link to Decryption Guide Page].
 {
 The following pages contain additional information about the platform and its features. Please take the time to read through them where necessary, as the above is only a basic guide to get things running. 
 
+- Testing The Intergration
 - Custom payment page specifications
 - iFrame payment form
 - Custom email receipt specifications
 - Payout transactions for gambling (OCT/CFT)
+
 }
 
 OR
 
-{
-The Merchant can also: - Each Feature
-}
+{ 
+
+The Merchant can also: - Each Feature 
+ 
+}  
 
 
