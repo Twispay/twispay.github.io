@@ -70,21 +70,9 @@ String htmlForm = "<form action=\"https://" + hostName + "\" method=\"post\" acc
     + "</form>";
 ```
 
+### Receive the Payment Status
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-After receiving and processing the request, Twispay sends back a response with useful data. This response is sent via a “server to server notification URL” and a “payment page back URL” provided by the Merchant, right after the payment, regardless of the result.
+After processing the request, Twispay sends back a response with data. This response is sent via a “server to server notification URL” and a “payment page back URL” provided by the Merchant, right after the payment, regardless of the result.
 
 After the transaction is completed (either as successful or failed), the client can be redirected to a URL (payment page back URL) specified by the merchant.
 
