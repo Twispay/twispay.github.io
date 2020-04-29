@@ -37,7 +37,7 @@ The process can be broken up into three simples steps:
 Prepare the checkout - Create the Payment Form - Receive the Payment Status
 
 
-### Prepare the Checkout
+### 1.Prepare the Checkout
 
 The first step is to collect the required data from the customer, to be sent in the payment POST Request. The minimum mandatory parameters needed for the request are: siteId, amount, currency, orderType, cardTransactionMode, orderId, identifier, Description.
 
@@ -46,7 +46,7 @@ Depending on the Bank you have a contract with you might have to provide additio
 Here you can find a [Full List of Request Parameters](https://github.com/Twispay/twispay.github.io/blob/master/full-request-params.md) with descriptions. 
 
 
-### Create the Payment Form
+### 2.Create the Payment Form
 
 Next you need to create a Payment Form to Submit the Post Request. 
 
@@ -69,7 +69,7 @@ String htmlForm = "<form action=\"https://" + hostName + "\" method=\"post\" acc
     + "</form>";
 ```
 
-### Receive the Payment Status
+### 3.Receive the Payment Status
 
 After processing the request, Twispay sends back a response with data via a “server to server notification URL” and a “payment page back URL” provided by the Merchant, right after the payment, regardless of the result.
 
