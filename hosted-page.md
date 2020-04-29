@@ -83,29 +83,10 @@ Note! The result parameter will be encrypted.
 The response will have to be decrypted to make the data readable. 
 Here's how you can do so [Link to Decryption Guide Page].
 
-{
-The following pages contain additional information about the platform and its features. Please take the time to read through them where necessary, as the above is only a basic guide to get things running. 
+See Also:
 
 - Testing The Intergration
 - Custom payment page specifications
 - iFrame payment form
 - Custom email receipt specifications
 - Payout transactions for gambling (OCT/CFT)
-
-}
-
-OR
-
-{ 
-
-The Merchant can also: 
-Additionally, the Merchant can
- 
-}  
-
-//
-//
-//
-//
-//
-//
