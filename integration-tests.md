@@ -1,6 +1,6 @@
 ## Testing the integration
 
-Once the integration is complete you can test different transaction results by creating orders with the following amounts: 
+Once the integration is complete you can test different transaction results by submitting orders with the following amounts: 
 
 | **Amount**                                            | **Result**                                     |
 | ----------------------------------------------------- | ---------------------------------------------- |
