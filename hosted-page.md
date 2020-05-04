@@ -85,7 +85,7 @@ Here's how you can do so [Link to Decryption Guide Page].
 
 See Also:
 
-- Testing The Intergration
+- [Testing The Intergration](https://github.com/Twispay/twispay.github.io/blob/master/integration-tests.md)
 - Custom payment page specifications
 - iFrame payment form
 - Custom email receipt specifications
