@@ -50,9 +50,9 @@ A [Full List of Request Parameters](https://github.com/Twispay/twispay.github.io
 
 On your backend server, first build the requested Json and sign it so that the customer cannot change your data. 
 
-```
+```javascript
 let orderData = {
-    "siteId": <!-- {% raw %} --> {{mySiteId}} <!-- {% endraw %} -->,
+    "siteId": <mySiteId>,
     "customer": {
         "identifier": "<myUserId>",
         "email": "<customerEmailAddress>"
