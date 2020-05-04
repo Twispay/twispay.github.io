@@ -95,7 +95,14 @@ Then, on your front-end, display the HTML Form and auto-submit it using Javascri
 ```
 ***Note!** For simplicity, we used JQuery Framework code for auto-submitting the form.*
 
-We also provide SDKs for: [PHP](https://github.com/Twispay/hostedpage-php-sdk), [DotNet](https://github.com/Twispay/hostedpage-dotnet-sdk), [NodeJS](https://github.com/Twispay/hostedpage-nodejs-sdk), [Python](https://github.com/Twispay/hostedpage-python-sdk), [Java](https://github.com/Twispay/hostedpage-java-sdk).
+<a href="http://example.com/" target="_blank">example</a>
+
+We also provide SDKs for:
+<a href="https://github.com/Twispay/hostedpage-php-sdk" target="_blank">PHP</a>,
+<a href="https://github.com/Twispay/hostedpage-dotnet-sdk" target="_blank">DotNet</a>,
+<a href="https://github.com/Twispay/hostedpage-nodejs-sdk" target="_blank">NodeJS</a>,
+<a href="https://github.com/Twispay/hostedpage-python-sdk" target="_blank">Python</a>,
+<a href="https://github.com/Twispay/hostedpage-java-sdk" target="_blank">Java</a>.
 
 @TODO: If you're not using any of these languages, you can build your own [checksum generator](https://www.linkdesprecumsafaciunchecksumgenerator.com).
 
