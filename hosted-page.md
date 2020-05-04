@@ -48,6 +48,31 @@ A [Full List of Request Parameters](https://github.com/Twispay/twispay.github.io
 
 ### 2. Create the Payment Form
 
+On your backend server, first build the requested Json and sign it so that the customer cannot change your data. 
+
+```
+let orderData = {
+    "siteId": ,
+    "customer": {
+     "identifier": "<externalUserId>",
+        "email": "<customerEmailAddress>"
+    },
+    "order": {
+        "orderId": "<myOrderId>",
+        "type": "purchase",
+        "amount": 100.00,
+        "currency": "EUR",
+        "description": "<myPaymentDescription>"
+    },
+    "cardTransactionMode": "authAndCapture",
+    "backUrl": "https://<myDomain>/<pathToThankYouPage>"
+}
+
+let base64JsonRequest = twispay.getBase64JsonRequest(orderData);
+    base64Checksum = twispay.getBase64Checksum(orderData, myTwispaySecretKey);
+```
+
+
 You can create the Payment Form via hidden HTML input. 
 In the POST Request parameters, you must specify the twispay® payment page URL, the payment details and the authentication information. 
 
