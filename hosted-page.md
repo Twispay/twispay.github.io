@@ -38,10 +38,10 @@ The Payment process is initiated through a HTTP POST Request to the hosted page.
 
 ### 1. Prepare the Checkout
 
-First, collect the required data from the customer, for the payment POST Request.  
+First, collect the required data from the customer.
 The minimum mandatory parameters needed for the request are: siteId, amount, currency, orderType, cardTransactionMode, orderId, identifier, Description.
 
-Depending on your contracted bank, with you might have to include additional parameters (email, address, country, city, state, etc).
+Depending on your contracted bank, you might have to include additional parameters (email, address, country, city, state, etc).
 
 A [Full List of Request Parameters](https://github.com/Twispay/twispay.github.io/blob/master/full-request-params.md) with descriptions is available for more details. 
 
