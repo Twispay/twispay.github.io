@@ -106,6 +106,11 @@ If you're not using any of these languages, you can build your own [checksum gen
 
 ### 3. Receive the Payment Status
 
+Before being able to receive the Payment Status, you first need to set up your Hosted Page Template in Twispay. 
+< Gif of Payment Page Setup >
+
+****
+
 In this step, there are two URLs you need to provide. 
 After a transaction is completed, the customer is redirected to a Payment Page Back URL. 
 The request response sent by Twispay needs a landing location in the form of a "Server to Server Notification URL".  
@@ -116,7 +121,8 @@ The POST parameter result (result and opensslResult) sent via the “server to s
 The result parameter will be encrypted, so you will have to decrypt it to make the data readable. 
 Here's how you can do so [[Link to Decryption Guide Page](https://github.com/Twispay/twispay.github.io/blob/master/Response%20Decryption%20Guide)].
 
-See Also:
+Congratulations, your integration now works! 
+See Also / What's Next:
 
 - [Testing The Intergration](https://github.com/Twispay/twispay.github.io/blob/master/integration-tests.md)
 - Custom payment page specifications
