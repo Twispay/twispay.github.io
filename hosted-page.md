@@ -68,43 +68,33 @@ let orderData = {
     "backUrl": "https://<myDomain>/<pathToThankYouPage>"
 }
 
-let base64JsonRequest = twispay.getBase64JsonRequest(orderData);
-    base64Checksum = twispay.getBase64Checksum(orderData, myTwispaySecretKey);
+const secretKey = "<myTwispaySecretKey>",
+      twispayLive = false,
+      hostName = twispayLive ? "secure.twispay.com" : "secure-stage.twispay.com";
+
+const base64JsonRequest = twispay.getBase64JsonRequest(orderData),
+      base64Checksum = twispay.getBase64Checksum(orderData, secretKey);
 ```
+***Note!** The Secret Key must remain secret, this is why you should never run this code client-side.*  
+***Note!** Previous example code is taken from NodeJS SDK*  
 
 Then, on your front-end, display the HTML Form and auto-submit it using Javascript. 
 
 ```HTML
+<form action="https://${hostName}" method="post" accept-charset="UTF-8" id="myForm">
+    <input type="hidden" name="jsonRequest" value="${base64JsonRequest}">
+    <input type="hidden" name="checksum" value="${base64Checksum}">
+    <input type="submit" value="Pay">
+</form>
 
-htmlForm = `<form action="https://${hostName}" method="post" accept-charset="UTF-8">
-        <input type="hidden" name="jsonRequest" value="${base64JsonRequest}">
-        <input type="hidden" name="checksum" value="${base64Checksum}">
-        <input type="submit" value="Pay">
-    </form>`
-
+<script type="javascript">
+    $(document).ready(function() {
+        $("#myForm").submit();
+    });
+</script>
 ```
+***Note!** For simplicity, we used JQuery Framework code for auto-submitting the form.*
 
-
-You can create the Payment Form via hidden HTML input. 
-In the POST Request parameters, you must specify the twispay® payment page URL, the payment details and the authentication information. 
-
-The Secure URLs are : 
-- https://secure.twispay.com for Production 
-- https://secure-stage.twispay.com for Testing 
-
-Here's an example of Java sample code used for generating a HTML form for a Twispay Order: 
-
-```Java
-// get the HTML form
-String base64JsonRequest = Twispay.getBase64JsonRequest(jsonOrderData);
-String base64Checksum = Twispay.getBase64Checksum(jsonOrderData, secretKey.getBytes(StandardCharsets.UTF_8));
-String hostName = twispayLive ? "secure.twispay.com" : "secure-stage.twispay.com";
-String htmlForm = "<form action=\"https://" + hostName + "\" method=\"post\" accept-charset=\"UTF-8\">\n"
-    + "<input type=\"hidden\" name=\"jsonRequest\" value=\"" + base64JsonRequest + "\">\n"
-    + "<input type=\"hidden\" name=\"checksum\" value=\"" + base64Checksum + "\">\n"
-    + "<input type=\"submit\" value=\"Pay\">\n"
-    + "</form>";
-```
 We also provide SDKs for: [PHP](https://github.com/Twispay/hostedpage-php-sdk), [DotNet](https://github.com/Twispay/hostedpage-dotnet-sdk), [NodeJS](https://github.com/Twispay/hostedpage-nodejs-sdk), [Python](https://github.com/Twispay/hostedpage-python-sdk), [Java](https://github.com/Twispay/hostedpage-java-sdk).
 
 ### 3. Receive the Payment Status
