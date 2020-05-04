@@ -43,7 +43,7 @@ The minimum mandatory parameters needed for the request are: siteId, amount, cur
 
 Depending on your contracted bank, you might have to include additional parameters (email, address, country, city, state, etc).
 
-A [Full List of Request Parameters](/full-request-params) with descriptions is available for more details. 
+A [Full List of Request Parameters](full-request-params.md) with descriptions is available for more details. 
 
 
 ### 2. Create the Payment Form
