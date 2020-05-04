@@ -14,7 +14,7 @@ The Twispay® hosted payment page is a securely web form designed to accept e-co
 With this page in place, customers are redirected from the merchant's website to a payment form hosted by Twispay®,
 so the merchant is no longer exposed to the sensitive payment details (Card Number, CVV, etc.) required to process a payment.   
 
-***Note!** If your site uses one of [supported platforms](#TODO) you can skip this giude
+***Note!** If your site uses one of [supported platforms](#TODO) you can skip this guide
 and go directly to [modules documentation](#TODO).*
 
 
@@ -102,8 +102,7 @@ We also provide SDKs for:
 <a href="https://github.com/Twispay/hostedpage-python-sdk" target="_blank">Python</a>,
 <a href="https://github.com/Twispay/hostedpage-java-sdk" target="_blank">Java</a>.
 
-@TODO: If you're not using any of these languages, you can build your own [checksum generator](https://www.linkdesprecumsafaciunchecksumgenerator.com).
-
+If you're not using any of these languages, you can build your own [checksum generator](#TODO).
 
 ### 3. Receive the Payment Status
 
