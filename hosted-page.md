@@ -81,7 +81,7 @@ These can be set via <>.
 The POST parameter result (result and opensslResult) sent via the “server to server notification URL” contain the following keys: externalOrderId, identifier, status, customerId, orderId, cardId, transactionId, transactionKind, timestamp, amount, currency, custom and customField.
 
 The result parameter will be encrypted, so you will have to decrypt it to make the data readable. 
-Here's how you can do so [Link to Decryption Guide Page].
+Here's how you can do so [[Link to Decryption Guide Page](https://github.com/Twispay/twispay.github.io/blob/master/Response%20Decryption%20Guide)].
 
 See Also:
 
