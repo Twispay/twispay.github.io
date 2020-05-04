@@ -39,10 +39,10 @@ Prepare the checkout - Create the Payment Form - Receive the Payment Status
 
 ### Prepare the Checkout
 
-Collect the required data from the customer, for the payment POST Request. 
+First, collect the required data from the customer, for the payment POST Request.  
 The minimum mandatory parameters needed for the request are: siteId, amount, currency, orderType, cardTransactionMode, orderId, identifier, Description.
 
-Depending on your contracted bank, with you might have to provide additional parameters (email, address, country, city, state, etc).
+Depending on your contracted bank, with you might have to include additional parameters (email, address, country, city, state, etc).
 
 A [Full List of Request Parameters](https://github.com/Twispay/twispay.github.io/blob/master/full-request-params.md) with descriptions is available for more details. 
 
@@ -52,8 +52,9 @@ A [Full List of Request Parameters](https://github.com/Twispay/twispay.github.io
 You can create the Payment Form via hidden HTML input. 
 In the POST Request parameters, you must specify the twispay® payment page URL, the payment details and the authentication information. 
 
-For production, the secure URL is: https://secure.twispay.com    
-For test, the secure URL is: https://secure-stage.twispay.com
+The Secure URLs are : 
+- https://secure.twispay.com for Production 
+- https://secure-stage.twispay.com for Testing 
 
 Here's an example of Java sample code used for generating a HTML form for a Twispay Order: 
 
