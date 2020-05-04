@@ -33,7 +33,7 @@ and go directly to [modules documentation](#TODO).*
 
 The Payment process is initiated through a HTTP POST Request to the hosted page.  
 
-Prepare the checkout &#8594; Create the Payment Form &#8594; Receive the Payment Status
+1. Prepare the checkout &#8594; 2. Create the Payment Form &#8594; 3. Receive the Payment Status
 
 
 ### Prepare the Checkout
