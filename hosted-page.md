@@ -52,9 +52,9 @@ On your backend server, first build the requested Json and sign it so that the c
 
 ```
 let orderData = {
-    "siteId": ,
+    "siteId": <!-- {% raw %} --> mySiteId <!-- {% endraw %} -->},
     "customer": {
-     "identifier": "<externalUserId>",
+        "identifier": "<myUserId>",
         "email": "<customerEmailAddress>"
     },
     "order": {
