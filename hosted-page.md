@@ -43,7 +43,7 @@ The minimum mandatory parameters needed for the request are: siteId, amount, cur
 
 Depending on your contracted bank, you might have to include additional parameters (email, address, country, city, state, etc).
 
-A [Full List of Request Parameters](https://github.com/Twispay/twispay.github.io/blob/master/full-request-params.md) with descriptions is available for more details. 
+A [Full List of Request Parameters](/full-request-params) with descriptions is available for more details. 
 
 
 ### 2. Create the Payment Form
@@ -68,7 +68,7 @@ let orderData = {
     "backUrl": "https://<myDomain>/<pathToThankYouPage>"
 }
 
-const secretKey = "<myTwispaySecretKey>",
+const secretKey = "<myTwispayApiKey>",
       twispayLive = false,
       hostName = twispayLive ? "secure.twispay.com" : "secure-stage.twispay.com";
 
@@ -76,7 +76,7 @@ const base64JsonRequest = twispay.getBase64JsonRequest(orderData),
       base64Checksum = twispay.getBase64Checksum(orderData, secretKey);
 ```
 ***Note!** The Secret Key must remain secret, this is why you should never run this code client-side.*  
-***Note!** Previous example code is taken from NodeJS SDK*  
+***Note!** Previous example code is taken from NodeJS SDK.*  
 
 Then, on your front-end, display the HTML Form and auto-submit it using Javascript. 
 
@@ -96,6 +96,9 @@ Then, on your front-end, display the HTML Form and auto-submit it using Javascri
 ***Note!** For simplicity, we used JQuery Framework code for auto-submitting the form.*
 
 We also provide SDKs for: [PHP](https://github.com/Twispay/hostedpage-php-sdk), [DotNet](https://github.com/Twispay/hostedpage-dotnet-sdk), [NodeJS](https://github.com/Twispay/hostedpage-nodejs-sdk), [Python](https://github.com/Twispay/hostedpage-python-sdk), [Java](https://github.com/Twispay/hostedpage-java-sdk).
+
+@TODO: If you're not using any of these languages, you can build your own [checksum generator](https://www.linkdesprecumsafaciunchecksumgenerator.com).
+
 
 ### 3. Receive the Payment Status
 
