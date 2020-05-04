@@ -95,8 +95,6 @@ Then, on your front-end, display the HTML Form and auto-submit it using Javascri
 ```
 ***Note!** For simplicity, we used JQuery Framework code for auto-submitting the form.*
 
-<a href="http://example.com/" target="_blank">example</a>
-
 We also provide SDKs for:
 <a href="https://github.com/Twispay/hostedpage-php-sdk" target="_blank">PHP</a>,
 <a href="https://github.com/Twispay/hostedpage-dotnet-sdk" target="_blank">DotNet</a>,
