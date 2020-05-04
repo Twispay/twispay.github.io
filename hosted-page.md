@@ -36,7 +36,7 @@ The Payment process is initiated through a HTTP POST Request to the hosted page.
 1. Prepare the checkout &#8594; 2. Create the Payment Form &#8594; 3. Receive the Payment Status
 
 
-### Prepare the Checkout
+### 1. Prepare the Checkout
 
 First, collect the required data from the customer, for the payment POST Request.  
 The minimum mandatory parameters needed for the request are: siteId, amount, currency, orderType, cardTransactionMode, orderId, identifier, Description.
@@ -46,7 +46,7 @@ Depending on your contracted bank, with you might have to include additional par
 A [Full List of Request Parameters](https://github.com/Twispay/twispay.github.io/blob/master/full-request-params.md) with descriptions is available for more details. 
 
 
-### Create the Payment Form
+### 2. Create the Payment Form
 
 You can create the Payment Form via hidden HTML input. 
 In the POST Request parameters, you must specify the twispay® payment page URL, the payment details and the authentication information. 
@@ -70,7 +70,7 @@ String htmlForm = "<form action=\"https://" + hostName + "\" method=\"post\" acc
 ```
 We also provide SDKs for: [PHP](https://github.com/Twispay/hostedpage-php-sdk), [DotNet](https://github.com/Twispay/hostedpage-dotnet-sdk), [NodeJS](https://github.com/Twispay/hostedpage-nodejs-sdk), [Python](https://github.com/Twispay/hostedpage-python-sdk), [Java](https://github.com/Twispay/hostedpage-java-sdk).
 
-### Receive the Payment Status
+### 3. Receive the Payment Status
 
 In this step, there are two URLs you need to provide. 
 After a transaction is completed, the customer is redirected to a Payment Page Back URL. 
