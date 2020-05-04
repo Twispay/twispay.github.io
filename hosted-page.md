@@ -73,15 +73,12 @@ We also provide SDKs for: [PHP](https://github.com/Twispay/hostedpage-php-sdk), 
 
 ### Receive the Payment Status
 
-The request response sent by Twispay needs a location in the form of a "Server to Server Notification URL". 
+After a transaction is completed, the customer is redirected to a Payment Page Back URL that you can provide.
+The request response sent by Twispay needs a landing location in the form of a "Server to Server Notification URL". 
 
-After processing the request, Twispay sends back a response with data via a “server to server notification URL” and a “payment page back URL” provided by the Merchant, right after the payment, regardless of the result.
+The POST parameter result (result and opensslResult) sent via the “server to server notification URL” contain the following keys: externalOrderId, identifier, status, customerId, orderId, cardId, transactionId, transactionKind, timestamp, amount, currency, custom and customField.
 
-After the transaction is completed, the client can be redirected to a URL (payment page back URL) specified by the merchant.
-
-The POST parameter result (result and opensslResult) sent via the “server to server notification URL” will contain the following keys: externalOrderId, identifier, status, customerId, orderId, cardId, transactionId, transactionKind, timestamp, amount, currency, custom and customField.
-
-The result parameter will be encrypted, so it will have to be decrypted to make the data readable. 
+The result parameter will be encrypted, so you will have to decrypt it to make the data readable. 
 Here's how you can do so [Link to Decryption Guide Page].
 
 See Also:
