@@ -48,7 +48,7 @@ A [Full List of Request Parameters](https://github.com/Twispay/twispay.github.io
 
 ### 2. Create the Payment Form
 
-On your backend server, first build the requested Json and sign it so that the customer cannot change your data. 
+On your back-end server, first build the requested JSON and sign it so that the customer cannot change your data. 
 
 ```javascript
 let orderData = {
@@ -70,6 +70,18 @@ let orderData = {
 
 let base64JsonRequest = twispay.getBase64JsonRequest(orderData);
     base64Checksum = twispay.getBase64Checksum(orderData, myTwispaySecretKey);
+```
+
+Then, on your front-end, display the HTML Form and auto-submit it using Javascript. 
+
+```HTML
+
+htmlForm = `<form action="https://${hostName}" method="post" accept-charset="UTF-8">
+        <input type="hidden" name="jsonRequest" value="${base64JsonRequest}">
+        <input type="hidden" name="checksum" value="${base64Checksum}">
+        <input type="submit" value="Pay">
+    </form>`
+
 ```
 
 
