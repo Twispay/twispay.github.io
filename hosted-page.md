@@ -73,6 +73,8 @@ We also provide SDKs for: [PHP](https://github.com/Twispay/hostedpage-php-sdk), 
 
 ### Receive the Payment Status
 
+The request response sent by Twispay needs a location in the form of a "Server to Server Notification URL". 
+
 After processing the request, Twispay sends back a response with data via a “server to server notification URL” and a “payment page back URL” provided by the Merchant, right after the payment, regardless of the result.
 
 After the transaction is completed, the client can be redirected to a URL (payment page back URL) specified by the merchant.
