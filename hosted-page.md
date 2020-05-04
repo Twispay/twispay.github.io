@@ -31,10 +31,9 @@ and go directly to [modules documentation](#TODO).*
 
 ## How it works?
 
-The Payment process is done through a POST Request - Response combo between the Merchant and Twispay's Secure API. 
-The process can be broken up into three simples steps:
+The Payment process is initiated through a HTTP POST Request to the hosted page.  
 
-Prepare the checkout - Create the Payment Form - Receive the Payment Status
+Prepare the checkout &#8594; Create the Payment Form &#8594; Receive the Payment Status
 
 
 ### Prepare the Checkout
