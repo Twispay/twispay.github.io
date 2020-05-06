@@ -124,8 +124,8 @@ Here's how you can do so [[Link to Decryption Guide Page](https://github.com/Twi
 Congratulations, your integration now works! 
 See Also / What's Next:
 
-- [Testing The Intergration](https://github.com/Twispay/twispay.github.io/blob/master/integration-tests.md)
-- Custom payment page specifications
-- iFrame payment form
-- Custom email receipt specifications
-- Payout transactions for gambling (OCT/CFT)
+- [Testing The Intergration](integration-tests.md)
+- [Custom payment page specifications](custom-payment-page.md)
+- [iFrame payment form](iframe-payment-form.md)
+- [Custom email receipt specifications](custom-mail-receipt)
+- [Payout transactions for gambling (OCT/CFT)](Payout-transactions-gambling.md)
