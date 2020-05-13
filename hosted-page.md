@@ -124,6 +124,8 @@ Split the response by the first comma. On the left side, you will get the initia
 Decode both by using a base64 algorithm.  
 Obtain the data by using openssl decrypt providing data, aes-256-cbc cipher, your secret key and the IV.  
 
+
+
 Here is an example of the decryption function (in PHP) for opensslResult:
 
 ```php
