@@ -118,7 +118,46 @@ These can be set via <>.
 
 The POST parameter result (result and opensslResult) sent via the “server to server notification URL” contain the following keys: externalOrderId, identifier, status, customerId, orderId, cardId, transactionId, transactionKind, timestamp, amount, currency, custom and customField.
 
-The result parameter will be encrypted, so you will have to decrypt it to make the data readable. 
+The result parameter will be encrypted, so you will have to decrypt it to make the data readable.  
+The decrpytion process involves a few steps: 
+Split the response by the first comma. On the left side, you will get the initialization vector (IV) and on the right side, the encrypted data. 
+Decode both by using a base64 algorithm.  
+Obtain the data by using openssl decrypt providing data, aes-256-cbc cipher, your secret key and the IV.  
+
+Here is an example of the decryption function (in PHP) for opensslResult:
+
+```php
+function decrypt($encrypted, $key = 'YOUR API KEY HERE') 
+    {
+        $encrypted = (string)$encrypted;
+        if(!strlen($encrypted)) {
+            return null;
+        }
+        if(strpos($encrypted, ',') !== false) {
+            $encryptedParts = explode(',', $encrypted, 2);
+            $iv = base64_decode($encryptedParts[0]);
+            if (false === $iv) {
+                throw new Exception("Invalid encryption iv");
+            }
+            $encrypted = base64_decode($encryptedParts[1]);
+            if (false === $encrypted) {
+                throw new Exception("Invalid encrypted data");
+            }
+            $decrypted = openssl_decrypt($encrypted, “aes-256-cbc”, $key, OPENSSL_RAW_DATA, $iv);
+            if (false === $decrypted) {
+                throw new Exception("Data could not be decrypted");
+            }
+            return $decrypted;	
+        }
+    return null;   
+    }
+```
+
+**Note!** Make sure you add your own apiKey.
+
+
+
+
 Here's how you can do so [[Link to Decryption Guide Page](https://github.com/Twispay/twispay.github.io/blob/master/Response%20Decryption%20Guide)].
 
 Congratulations, your integration now works! 
