@@ -116,7 +116,7 @@ After a transaction is completed, the customer is redirected to a Payment Page B
 The request response sent by Twispay needs a landing location in the form of a "Server to Server Notification URL".  
 These can be set via <>. 
 
-The POST parameter result (result and opensslResult) sent via the “server to server notification URL” contain the following keys: externalOrderId, identifier, status, customerId, orderId, cardId, transactionId, transactionKind, timestamp, amount, currency, custom and customField.
+The POST parameter result (result and opensslResult) sent via the “server to server notification URL” contain the following keys: `externalOrderId`, `identifier`, `status`, `customerId`, `orderId`, `cardId`, `transactionId`, `transactionKind`, `timestamp`, `amount`, `currency`, `custom` and `customField`.
 
 The result parameter will be encrypted, so you will have to decrypt it to make the data readable.  
 The decrpytion process involves a few steps: 
