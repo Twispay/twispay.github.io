@@ -42,7 +42,6 @@ The apiKey is listed in the Website details view as “Private key”
 | :--------------------------------------------- | :----------------------------------------------------------: | ------------- |
 | **Authentication parameters**                    |                                                              |               |
 | siteId                                         |                integer – provided by twispay                 | yes           |
-| checksum                                       | string – see chapter [Request   signature](#_Request_signature) | yes           |
 | threeDSecureData                               | Base64Encoded 3DSecure 2.0 Json (structure explained bellow  under 3DSecure 2.0 section) | no            |
 | **Customer details parameters**                |                                                              |               |
 | customer.identifier                            |  string – customer ID assigned by merchant/ char limit - 92  | yes           |
@@ -60,7 +59,7 @@ The apiKey is listed in the Website details view as “Private key”
 | order.amount                                   |             float – use dot as decimal separator             | yes           |
 | order.currency                                 | string – use [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) three letter code | yes           |
 | order.description                              | string – 77056 characters long; mandatory if item is not defined | conditional   |
-| order.orderType                                | string – one of: “purchase”, “recurring”,  “managed”, “credit” | yes           |
+| order.Type                                | string – one of: “purchase”, “recurring”,  “managed”, “credit” | yes           |
 | order.orderId                                  | string – your identifier of the transaction; must be unique for  each request | yes           |
 | order.retryPayment                             | string – Comma separated values  representing retry intervals for failed re-bill payments, use [ISO 8601 Durations](https://en.wikipedia.org/wiki/ISO_8601#Durations) [ex: P1D,P2D,P3D] | no            |
 | order.tags                                     |                indexed array of string values                | no            |
@@ -400,63 +399,74 @@ You will have to provide us with a “server to server notification URL” and a
 
 2.Second, on the “server to server notification URL”; this is useful for those cases when the browser fails and we need to notify you on the status of a transaction. The IPN (Instant Payment Notification) that we send to the “server to server notification URL” may have delays which is why you should use the result received at the “payment page back URL” to update your transaction status and post the correct message to your customers. To acknowledge that you received the IPN, your server needs to respond with 200 OK, with the text OK being the only content in the page. In case your server does not respond when we send you the IPN we have a retry scheme (1 min, 5 min, 1h, 24h) before dropping the message.
 
-The POST parameter result (`result` and `opensslResult`) sent via the “server to server notification URL” will contain the following keys: `externalOrderId`, `identifier`, `status`, `customerId`, `orderId`, `cardId`, `transactionId`, `transactionKind`, `timestamp`, `amount`, `currency`, `custom` and `customField`
+The POST parameter result (`result` and `opensslResult`) sent via the “server to server notification URL” and "paypment page back URL" is the same and will contain the following keys: `externalOrderId`, `identifier`, `status`, `customerId`, `orderId`, `cardId`, `transactionId`, `transactionKind`, `timestamp`, `amount`, `currency`, `customData` and `customField`
 
 **Note!** `result` is only used for backwards compatibility and we recommend using only `opensslResult`
 
+**Note!** The `customData` parameter can be both String or Array. It returns the data that is sent of the same type. This applies to both IPN and BackURL
+
 **Note!** The result parameter will be encrypted.
 
-Here is an example of an `opensslResult` (after being decrypted):
+Here is an `opensslResult` example from a succesful transaction (after being decrypted):
 
 ```php
-Array(
-    [status] => complete-ok
-    [externalOrderId] => external-order-id
-    [identifier] => identifier
-    [customerId] => 1
-    [orderId] => 123
-    [cardId] => 3
-    [transactionId] => 1234
-    [transactionKind] => card
-    [custom] => Array(
-        [key_1] => value_1
-        [key_2] => value_2
-    )
-    [customField] => Array()
-    [amount] => 45
-    [currency] => EUR
-    [timestamp] => 1485939750
-)
 
+array (
+  'code' => 201,
+  'message' => 'Created',
+  'transactionStatus' => 'complete-ok',
+  'orderId' => 1234,
+  'externalOrderId' => 'external-order-id',
+  'transactionId' => 1234,
+  'transactionMethod' => 'card',
+  'customerId' => 1,
+  'identifier' => 'identifier',
+  'amount' => 5,
+  'currency' => 'EUR',
+  'customData' => array(
+  'key_1' => value_1,
+  'key_2' => value_2
+  )
+  'customFields' => array (
+  'nameOfYourCustomField' => valueOfYourCustomField
+  ),
+  'timestamp' => 1600874501,
+  'cardId' => 3 
+)
 ```
 
-The POST parameter result (`result` and `opensslResult`) sent via the “payment page back URL” will contain the following keys: `externalOrderId`, `identifier`, `status`, `customerId`, `orderId`, `cardId`, `transactionId`, `timestamp`, `custom` and `customField`
+And a declined transaction example: 
 
- 
-
-**Note!** `result` is only used for backwards compatibility and we recommend using only `opensslResult` 
-
-**Note!** The result parameter will be encrypted.
-
-
-
-Here is an example of a `result` (after being decrypted):
 
 ```php
-Array(
-    [status] => complete-ok
-    [externalOrderId] => external-order-id
-    [identifier] => identifier
-    [customerId] => 1
-    [orderId] => 123
-    [cardId] => 3
-    [transactionId] => 1234
-    [custom] => Array(
-        [key_1] => value_1
-        [key_2] => value_2
-    )
-    [customField] => Array()
-    [timestamp] => 1485939750
+array (
+  'code' => 402,
+  'message' => 'Payment Required',
+  'transactionStatus' => 'complete-failed',
+  'orderId' => 1234,
+  'externalOrderId' => 'external-order-id',
+  'transactionId' => 1234,
+  'transactionMethod' => 'card',
+  'customerId' => 1,
+  'identifier' => 'identifier',
+  'amount' => 0.03,
+  'currency' => 'EUR',
+  'customData' => array(
+  'key_1' => value_1,
+  'key_2' => value_2
+  )
+  'customFields' => array (
+  'nameOfYourCustomField' => valueOfYourCustomField
+  ),
+  'timestamp' => 1600871462,
+  'cardId' => NULL,
+  'errors' => array (
+    0 => array (
+      'code' => 837,
+      'message' => 'Transaction was rejected by the payment provider.',
+      'type' => 'Exception',
+    ),
+  ),
 )
 
 ```
