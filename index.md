@@ -428,7 +428,7 @@ array (
   'key_2' => value_2
   )
   'customFields' => array (
-  'nameOfYourCustomField' => valueOfYourCustomField
+  'nameOfYourCustomField' => 'valueOfYourCustomField'
   ),
   'timestamp' => 1600874501,
   'cardId' => 3 
@@ -456,7 +456,7 @@ array (
   'key_2' => value_2
   )
   'customFields' => array (
-  'nameOfYourCustomField' => valueOfYourCustomField
+  'nameOfYourCustomField' => 'valueOfYourCustomField'
   ),
   'timestamp' => 1600871462,
   'cardId' => NULL,
