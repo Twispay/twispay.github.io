@@ -427,8 +427,8 @@ Here is an `opensslResult` example from a succesful transaction (after being dec
   "customFields": {
     "nameOfYourCustomField": "valueOfYourCustomField"
   },
-  "timestamp" => 1600874501,
-  "cardId" => 3 
+  "timestamp": 1600874501,
+  "cardId": 3 
 }
 ```
 
@@ -450,7 +450,7 @@ And a declined transaction example:
     "key_2": "value_2"
   },
   "customFields": {
-    "nameOfYourCustomField" => "valueOfYourCustomField"
+    "nameOfYourCustomField": "valueOfYourCustomField"
   },
   "timestamp": 1600871462,
   "cardId": null,
