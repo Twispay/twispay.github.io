@@ -409,69 +409,62 @@ The POST parameter result (`result` and `opensslResult`) sent via the “server 
 
 Here is an `opensslResult` example from a succesful transaction (after being decrypted):
 
-```php
-
-array (
-  'code' => 201,
-  'message' => 'Created',
-  'transactionStatus' => 'complete-ok',
-  'orderId' => 1234,
-  'externalOrderId' => 'external-order-id',
-  'transactionId' => 1234,
-  'transactionMethod' => 'card',
-  'customerId' => 1,
-  'identifier' => 'identifier',
-  'amount' => 5,
-  'currency' => 'EUR',
-  'customData' => array(
-  'key_1' => value_1,
-  'key_2' => value_2
-  )
-  'customFields' => array (
-  'nameOfYourCustomField' => 'valueOfYourCustomField'
-  ),
+```json
+{
+  'transactionStatus': 'complete-ok',
+  'orderId': 1234,
+  'externalOrderId': 'external-order-id',
+  'transactionId': 1234,
+  'transactionMethod': 'card',
+  'customerId': 1,
+  'identifier': 'identifier',
+  'amount': 5.55,
+  'currency': 'EUR',
+  'customData': {
+    'key_1': 'value_1',
+    'key_2': 'value_2'
+  },
+  'customFields': {
+    'nameOfYourCustomField': 'valueOfYourCustomField'
+  },
   'timestamp' => 1600874501,
   'cardId' => 3 
-)
+}
 ```
 
 And a declined transaction example: 
 
-
-```php
-array (
-  'code' => 402,
-  'message' => 'Payment Required',
-  'transactionStatus' => 'complete-failed',
-  'orderId' => 1234,
-  'externalOrderId' => 'external-order-id',
-  'transactionId' => 1234,
-  'transactionMethod' => 'card',
-  'customerId' => 1,
-  'identifier' => 'identifier',
-  'amount' => 0.03,
-  'currency' => 'EUR',
-  'customData' => array(
-  'key_1' => value_1,
-  'key_2' => value_2
-  )
-  'customFields' => array (
-  'nameOfYourCustomField' => 'valueOfYourCustomField'
-  ),
-  'timestamp' => 1600871462,
-  'cardId' => NULL,
-  'errors' => array (
-    0 => array (
-      'code' => 837,
-      'message' => 'Transaction was rejected by the payment provider.',
-      'type' => 'Exception',
-    ),
-  ),
-)
-
+```json
+{
+  'transactionStatus': 'complete-failed',
+  'orderId': 1234,
+  'externalOrderId': 'external-order-id',
+  'transactionId': 1234,
+  'transactionMethod': 'card',
+  'customerId': 1,
+  'identifier': 'identifier',
+  'amount': 0.03,
+  'currency': 'EUR',
+  'customData': {
+    'key_1': value_1,
+    'key_2': value_2
+  },
+  'customFields': {
+    'nameOfYourCustomField' => 'valueOfYourCustomField'
+  },
+  'timestamp': 1600871462,
+  'cardId': null,
+  'errors': [
+    {
+      'code': 837,
+      'message': 'Transaction was rejected by the payment provider.',
+      'type': 'Exception'
+    }
+  ]
+}
 ```
 
-The `status` key can have the following values: in-progress (only the AUTH was made), complete-ok (complete, successful transaction), complete-failed (failed transaction).
+The `transactionStatus` key can have the following values: in-progress (only the AUTH was made), complete-ok (complete, successful transaction), complete-failed (declined transaction).
 
 # Decrypting the response
 
