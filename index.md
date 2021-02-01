@@ -411,24 +411,24 @@ Here is an `opensslResult` example from a succesful transaction (after being dec
 
 ```json
 {
-  'transactionStatus': 'complete-ok',
-  'orderId': 1234,
-  'externalOrderId': 'external-order-id',
-  'transactionId': 1234,
-  'transactionMethod': 'card',
-  'customerId': 1,
-  'identifier': 'identifier',
-  'amount': 5.55,
-  'currency': 'EUR',
-  'customData': {
-    'key_1': 'value_1',
-    'key_2': 'value_2'
+  "transactionStatus": "complete-ok",
+  "orderId": 1234,
+  "externalOrderId": "external-order-id",
+  "transactionId": 1234,
+  "transactionMethod": "card",
+  "customerId": 1,
+  "identifier": "identifier",
+  "amount": 5.55,
+  "currency": "EUR",
+  "customData": {
+    "key_1": "value_1",
+    "key_2": "value_2"
   },
-  'customFields': {
-    'nameOfYourCustomField': 'valueOfYourCustomField'
+  "customFields": {
+    "nameOfYourCustomField": "valueOfYourCustomField"
   },
-  'timestamp' => 1600874501,
-  'cardId' => 3 
+  "timestamp" => 1600874501,
+  "cardId" => 3 
 }
 ```
 
@@ -436,29 +436,29 @@ And a declined transaction example:
 
 ```json
 {
-  'transactionStatus': 'complete-failed',
-  'orderId': 1234,
-  'externalOrderId': 'external-order-id',
-  'transactionId': 1234,
-  'transactionMethod': 'card',
-  'customerId': 1,
-  'identifier': 'identifier',
-  'amount': 0.03,
-  'currency': 'EUR',
-  'customData': {
-    'key_1': value_1,
-    'key_2': value_2
+  "transactionStatus": "complete-failed",
+  "orderId": 1234,
+  "externalOrderId": "external-order-id",
+  "transactionId": 1234,
+  "transactionMethod": "card",
+  "customerId": 1,
+  "identifier": "identifier",
+  "amount": 0.03,
+  "currency": "EUR",
+  "customData": {
+    "key_1": "value_1",
+    "key_2": "value_2"
   },
-  'customFields': {
-    'nameOfYourCustomField' => 'valueOfYourCustomField'
+  "customFields": {
+    "nameOfYourCustomField" => "valueOfYourCustomField"
   },
-  'timestamp': 1600871462,
-  'cardId': null,
-  'errors': [
+  "timestamp": 1600871462,
+  "cardId": null,
+  "errors": [
     {
-      'code': 837,
-      'message': 'Transaction was rejected by the payment provider.',
-      'type': 'Exception'
+      "code": 837,
+      "message": "Transaction was rejected by the payment provider.",
+      "type": "Exception"
     }
   ]
 }
