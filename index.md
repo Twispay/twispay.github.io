@@ -399,13 +399,13 @@ You will have to provide us with a “server to server notification URL” and a
 
 2.Second, on the “server to server notification URL”; this is useful for those cases when the browser fails and we need to notify you on the status of a transaction. The IPN (Instant Payment Notification) that we send to the “server to server notification URL” may have delays which is why you should use the result received at the “payment page back URL” to update your transaction status and post the correct message to your customers. To acknowledge that you received the IPN, your server needs to respond with 200 OK, with the text OK being the only content in the page. In case your server does not respond when we send you the IPN we have a retry scheme (1 min, 5 min, 1h, 24h) before dropping the message.
 
-The POST parameter result (`result` and `opensslResult`) sent via the “server to server notification URL” and "paypment page back URL" is the same and will contain the following keys: `externalOrderId`, `identifier`, `status`, `customerId`, `orderId`, `cardId`, `transactionId`, `transactionKind`, `timestamp`, `amount`, `currency`, `customData` and `customField`
+The POST parameter result (`result` and `opensslResult`) sent via the “server to server notification URL” and "paypment page back URL" is the same and will contain the following keys: `externalOrderId`, `identifier`, `transactionStatus`, `customerId`, `orderId`, `cardId`, `transactionId`, `transactionMethod`, `timestamp`, `amount`, `currency`, `customData` and `customFields`
 
 **Note!** `result` is only used for backwards compatibility and we recommend using only `opensslResult`
 
-**Note!** The `customData` parameter can be both String or Array. It returns the data that is sent of the same type. This applies to both IPN and BackURL
+**Note!** The `customData` parameter can be any of String or Object. It returns the data that is sent of the same type. This applies to both IPN and BackURL
 
-**Note!** The result parameter will be encrypted.
+**Note!** The `opensslResult` parameter will be encrypted.
 
 Here is an `opensslResult` example from a succesful transaction (after being decrypted):
 
