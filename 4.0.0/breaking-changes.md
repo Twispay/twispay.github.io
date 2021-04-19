@@ -1,6 +1,6 @@
 # Breaking changes in 4.0.0
 
-We standardised the way the requests are sent to your shop after a payment is processed via backUrl and IPN (server-to-server). So no more differenes between them.
+We standardised the way the requests are sent to your shop after a payment is processed via backUrl and IPN (server-to-server). So no more differenes between them.  
 For a complete documentation of the new standard please check the documentation [here](../index.md#response-parameters)
 
 ## "code" and "message" are removed
