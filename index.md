@@ -148,6 +148,8 @@ In the example bellow the total amount is split between two merchants. Please no
 
 **Split schema item parameters validation** 
 
+**Note!** You can validate your JSON using any validator and the Twispay transactionOption validation schema, which you can find here: [https://secure-stage.twispay.com/schema/transactionOption/transactionOption.schema.json](https://secure-stage.twispay.com/schema/transactionOption/transactionOption.schema.json)
+
 | **Name**                       | **Type**  | **Details**                                                  |
 | ------------------------------ | --------- | ------------------------------------------------------------ |
 | transactionOption.splitPayment.splitSchema[0].siteId       | integer | merchant site Id                   |
@@ -383,6 +385,22 @@ FORM;
     }
   },
   "cardTransactionMode": "authAndCapture",
+  "transactionOption" : {
+    "splitPayment": {
+	"splitSchema": [
+	    {
+		"siteId": 1,
+		"amount": 2190.0,
+		"description": "split 1",
+	    },
+	    {
+		"siteId": 2,
+		"amount": 4.98,
+		"description": "split 2",
+	    }
+	]
+    },
+  },
   "cardId": 1,
   "invoiceEmail": "john.doe@test.com",
   "backUrl": "http://example.com",
