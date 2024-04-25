@@ -147,6 +147,7 @@ In the example bellow the total amount is split between two merchants. Please no
 ```
 
 **Split schema item parameters validation** 
+
 | **Name**                       | **Type**  | **Details**                                                  |
 | ------------------------------ | --------- | ------------------------------------------------------------ |
 | transactionOption.splitPayment.splitSchema[0].siteId       | integer | merchant site Id                   |
