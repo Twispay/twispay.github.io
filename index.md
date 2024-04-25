@@ -65,6 +65,7 @@ The apiKey is listed in the Website details view as “Private key”
 | order.tags                                     |                                                                                     indexed array of string values                                                                                      | no            |
 | order.saveCard                                 |                   integer (used as boolean: 1 for "true", 0 for "false") - Set the option to save card checked by default (the save card checkbox must be activated in the template)                    | no            |
 | cardTransactionMode                            |                                       string – one of: “auth” (only reserve the requested  amount), “authAndCapture” (also sends a settlement request), “credit”                                        | yes           |
+| transactionOption                              |            Parameters used to create a split payment transaction used for marketplace merchants to split the amount with their sub-merchants (structure detailed bellow)                                | no            |
 | backUrl                                        |                                     string – used to redirect the customers back to the merchant’s  site; we also post an encrypted transaction result to this URL                                      | yes           |
 | cardId                                         |                                                                        integer – id of a previously used card for this  customer                                                                        | no            |
 | order.intervalType                             |                                                                                     string – one of: “day”, “month”                                                                                     | conditional   |
@@ -117,6 +118,42 @@ Bellow is explained the structure of an item array present in the „items” ar
 **Note!** The ‘orderId’ must be unique for each request since it is stored in the customer’s cookies and re-attempting to make a payment with the same ID will immediately return the same result as the initial submit.
 
 Ex: if the first attempt failed, re-submitting with the same ID will take the customer directly onto the page where the fail message is displayed.
+
+## Transaction Option data (split payment)
+
+Bellow is explained the structure of the „transactionOption” param. 
+
+**Example of JSON for transactionOption parameters**   
+In the example bellow the total amount is split between two merchants. Please note that any merchant can split further to it's sub-merchants using another "splitPayment"
+```json
+{
+    "splitPayment": {
+        "splitSchema": [
+            {
+                "siteId": 1,
+                "amount": 22.5,
+                "description": "...",
+                "splitPayment": {}
+            },
+            {
+                "siteId": 2,
+                "amount": 3.7,
+                "description": "...",
+                "splitPayment": {}
+            }
+        ]
+    },
+}
+```
+
+**Split schema item parameters validation** 
+| **Name**                       | **Type**  | **Details**                                                  |
+| ------------------------------ | --------- | ------------------------------------------------------------ |
+| transactionOption.splitPayment.splitSchema[0].siteId       | integer | merchant site Id                   |
+| transactionOption.splitPayment.splitSchema[0].amount       | float   | the amount to split                |
+| transactionOption.splitPayment.splitSchema[0].description  | string  | description (optional)             |
+
+**Note!** Please consider that the sum of the split amounts must not be greater than the amount of the transaction.
 
 ## 3-D Secure 2.0
 
