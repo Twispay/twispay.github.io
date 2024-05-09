@@ -142,7 +142,7 @@ In the example bellow the total amount is split between two merchants. Please no
                 "splitPayment": {}
             }
         ]
-    },
+    }
 }
 ```
 
