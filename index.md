@@ -130,13 +130,13 @@ In the example bellow the total amount is split between two merchants. Please no
     "splitPayment": {
         "splitSchema": [
             {
-                "siteId": 1,
+                "toSite": 1,
                 "amount": 22.5,
                 "description": "...",
                 "splitPayment": {}
             },
             {
-                "siteId": 2,
+                "toSite": 2,
                 "amount": 3.7,
                 "description": "...",
                 "splitPayment": {}
@@ -152,7 +152,7 @@ In the example bellow the total amount is split between two merchants. Please no
 
 | **Name**                       | **Type**  | **Details**                                                  |
 | ------------------------------ | --------- | ------------------------------------------------------------ |
-| transactionOption.splitPayment.splitSchema[0].siteId       | integer | merchant site Id                   |
+| transactionOption.splitPayment.splitSchema[0].toSite       | integer | merchant site Id                   |
 | transactionOption.splitPayment.splitSchema[0].amount       | float   | the amount to split                |
 | transactionOption.splitPayment.splitSchema[0].description  | string  | description (optional)             |
 
